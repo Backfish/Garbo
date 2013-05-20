@@ -9,7 +9,7 @@ steal(
     './usermenu/usermenu.js',
     './start/start.js',
     './routing/routing.js',
-    'resources/jquery.gsap.min.js',
+    'resources/greensock/jquery.gsap.min.js',
     'resources/bootstrap/bootstrap-dropdown.js',
     function (can, $) {
         jQuery.support.cors = true;
@@ -25,6 +25,5 @@ steal(
         new Gb.Start('body');
             
         Routing = new Gb.Routing('body');
-
 
     });
