@@ -1,0 +1,64 @@
+@import "../../less/variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "../../less/mixins.less";
+#game-holder{
+	width: 100%;
+    height: 100%;
+    background: transparent;
+    position: fixed;
+	margin-top:25px;
+	z-index:4;
+    left: 0;
+    top:0;
+	.modal{
+		background:rgba(0,0,0,0.3);
+		border:1px solid #000;
+		.border-radius(0);
+	}
+	.close{color:darkred;text-shadow:rgba(0,0,0,0.7) 0px 1px 0px;
+		margin-top:-8px;
+		margin-right:-5px;
+	}
+	.modal-body{
+		padding:0;
+		margin:0;
+		overflow:hidden;
+	}
+	.in-game-info{
+		background: rgba(60,60,60,1);
+		padding:10px;
+		color:#fff;
+		margin:30px 10px 10px 10px;
+		border: 0px solid #000;
+		.border-radius(3px);
+		text-shadow:rgba(0,0,0,0.7) 0px 1px 0px;
+	}
+	.btn{text-align:center;}
+	h4{
+		color: #00AEEF;
+	}
+}
+#ifrGame{
+	border:0;
+	height:400px;
+	width:800px;
+}
+.game-info{
+	position:absolute;
+	right:0;
+	top:0;
+	width:180px;
+	padding:10px;
+}
+.play-for-fun .play-for-real, .play-for-real .play-for-fun{
+	display:none !important;
+}
+.game-backdrop{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: @white;
+  width: 100%;
+  height: 100%;
+}

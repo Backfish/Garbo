@@ -1,0 +1,17 @@
+<!-
+/Static/Garbo/User/Login
+HTML for controller User.Register, inherits Core.Form
+Less/Css is found in /Static/Garbo/User/Register
+-->
+<h1>Register</h1>
+<form id="frmRegister" action="#" class="form-vertical row">
+    Fill the form with some loveliness!
+</form>
+
+<script>
+    new User.Register($('#frmRegister'), { url: '/api/Security/Register' });
+    try {
+        _gaq.push(['_trackPageview', '/register']);
+    } catch (err) {
+    }
+</script>

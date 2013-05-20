@@ -1,0 +1,14 @@
+<%for(var i = "0"; i< this.length; i++){%>
+<%var type;
+if (this[i].type=='Deposit'){
+	type='Depósito';
+}else if(this[i].type=='Withdrawal'){
+	type='Retiro';
+}%>
+<tr>
+    <td><%=this[i].Date%></td>
+    <td><%=type%></td>
+    <td style="text-align:right;"><%=this[i].Amount%></td>
+    <td style="text-align:right;"><%=this[i].Balance%></td>
+</tr>
+<%}%>

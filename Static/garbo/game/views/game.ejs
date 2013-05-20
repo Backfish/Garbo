@@ -1,0 +1,17 @@
+<div class="modal" style="visibility:visible;width:<%=(size.Width+200)%>px;height:<%=(size.Height)%>px;position: relative; top: <%=-(size.Height+80)%>px; left: auto; padding:0;margin: 0 auto; z-index: 1; overflow:visible;">
+    <div class="modal-body">
+        <iframe id="ifrGame" frameborder="0" scrolling="no" src="<%=game.Url%>" style="width:<%size.Width%>px;height:<%=size.Height%>px"></iframe>
+        <div class="game-info">
+            <a class="close"><i class="icon-remove-circle"></i></a>
+            <div class="in-game-info logged-out">
+                <%==$('#hidGameContentLoggedOut').val()%>
+            </div>
+            <div class="in-game-info logged-in play-for-fun">
+                <%==$('#hidGameContentLoggedInPlayForFun').val()%>
+            </div>
+            <div class="in-game-info logged-in play-for-real">
+                <%==$('#hidGameContentLoggedInPlayForReal').val()%>
+            </div>
+        </div>
+    </div>
+</div>

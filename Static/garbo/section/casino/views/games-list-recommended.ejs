@@ -1,0 +1,60 @@
+<%
+var btnPlay = $('#hidPlayLabel').val();
+var btnPlayForFun = $('#hidPlayForFunLabel').val();
+%> 
+<%for(var i = 0; i < 3; i++){%>
+<li class="game-list-item-holder">
+    <%                                                                                                                         
+	var img = i%5==0?'<div class="game-img"><img class="item-img" src="/Img/Games/Medium/'+this[i].ImageName+'" width="205" alt="" /></div>':'<div class="game-img game-img-large"><img class="item-img" src="/Img/Games/Medium/'+this[i].ImageName+'" width="245" alt="" /></div>';
+        %>
+        <div class="games-list-item">
+		<%==img%>
+            <div class="item-info">
+                <h2><%=this[i].Name%></h2>
+                <%if (this[i].Jackpot>0){%>
+                <span class="info-jackpot">Jackpot: US$ <%=$.formatNumber(parseInt(this[i].Jackpot), { format: "#,###", locale: "us" })%></span>
+                <%}%>
+            </div>
+			
+            <div class="game-item-hover">
+                <a href="#!login" class="btn btn-game btn-large btn-info logged-out"><i class="icon-play-circle"></i> Ingresa y juega</a>
+                <%if(this[i].SubGames.length>0){%>
+
+                <div class="btn-group btn-game logged-in">
+                    <a href="#" class="dropdown-toggle btn btn-info btn-large" data-toggle="dropdown">
+                        <i class="icon-play-circle"></i> <%==btnPlay%>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <%for(var y=0;y<this[i].SubGames.length;y++){%>
+                        <li><a href="#" class="game-link" data-id="<%=this[i].SubGames[y].SubGameId%>"><%=this[i].SubGames[y].Description%></a></li>
+                        <%}%>
+                    </ul>
+                </div>
+                <%if (!this[i].IsAbleToPlayFun){%>
+				<p class="only-play-for-real">Lo sentimos. Este producto puede jugarse solo con dinero real.</p>
+                <%}else{%>
+                <div class="btn-group btn-game-fun">
+                    <a href="#" class="dropdown-toggle btn btn-small" data-toggle="dropdown">
+                        <%==btnPlayForFun%>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <%for(var y=0;y<this[i].SubGames.length;y++){%>
+                        <li><a href="#" class="game-link-fun" data-id="<%=this[i].SubGames[y].SubGameId%>"><%=this[i].SubGames[y].Description%></a></li>
+                        <%}%>
+                    </ul>
+                </div>
+				<%}%>
+                <%}else{%>
+                <a data-id="<%=this[i].GameId%>" class="btn btn-game btn-large btn-info game-link logged-in"><i class="icon-play-circle"></i> <%==btnPlay%></a><br />
+                <%if (!this[i].IsAbleToPlayFun){%>
+                <p class="only-play-for-real">Lo sentimos. Este producto puede jugarse solo con dinero real.</p>
+                <%}else{%>
+                <a data-id="<%=this[i].GameId%>" class="btn btn-game-fun btn-small game-link-fun"><%==btnPlayForFun%></a>	
+                <%}%>
+				<%}%>
+            </div>
+    </div>
+</li>
+<%}%>

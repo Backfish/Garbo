@@ -1,0 +1,36 @@
+<!-
+/Static/Garbo/User/Login
+HTML for controller User.Login, inherits Core.Form
+Less/Css is found in /Static/Garbo/User/login
+-->
+<h1>Login</h1>
+<form id="frmLogin" action="#" class="form-vertical row">
+    <fieldset class="span5 offset1">
+        <div class="controls input-prepend">
+            <span class="add-on"><i class="icon-envelope"></i></span>
+            <input type="text" name="Email" id="Email" class="span4" placeholder="Username/Email" />
+        </div>
+        <div class="controls input-prepend" style="position:relative;">
+            <span class="add-on"><i class="icon-key"></i></span>
+            <input type="password" name="Password" id="Password" class="span4" placeholder="Password" />
+            <a class="lnkForgottenPassword btn btn-mini" style="position:absolute;top:10px;right:60px;z-index:2;" href="#" data-title="Forgotten password?">Forgotten password</a>
+        </div>
+        <div class="controls">
+            <label class="checkbox">
+                <input name="RememberMe" type="checkbox">Remember me
+            </label>
+        </div>
+        
+        <div>
+            <button type="submit" class="btn btn-info btn-large pull-right" style="margin-right:50px;">Login</button>
+        </div>
+    </fieldset>
+</form>
+
+<script>
+    new User.Login($('#frmLogin'), { url: '/api/Security/Login' });
+    try {
+        _gaq.push(['_trackPageview', '/account/login']);
+    } catch (err) {
+    }
+</script>

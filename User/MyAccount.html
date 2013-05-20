@@ -1,0 +1,30 @@
+<h1>My account</h1>
+
+<div id="myaccountHolder">
+    <div style="float:right;">
+        <h5 style="text-align:right;text-transform:none;">Balance <span id="MyAccountBalance"></span></h5>
+    </div>
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#tabPersonalDetails" data-href="Account/PersonalDetails">Personal details</a></li>
+        <li><a href="#tabChangePassword" data-href="Account/ChangePassword">Change password</a></li>
+        <li><a href="#tabTransactions" data-href="Account/PlayerTransactions">Transaction history</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="tabPersonalDetails" class="tab-pane active">
+
+        </div>
+        <div id="tabChangePassword" class="tab-pane">
+
+        </div>
+        <div id="tabTransactions" class="tab-pane">
+
+        </div>
+    </div>
+</div>
+<script>
+    new User.Myaccount('#myaccountHolder');
+    try {
+        _gaq.push(['_trackPageview', '/account/myaccount']);
+    } catch (err) {
+    }
+</script>

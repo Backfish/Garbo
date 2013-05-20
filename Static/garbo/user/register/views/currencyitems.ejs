@@ -1,0 +1,8 @@
+<option value=""><%=$('#CurrencyCode option:first').html()%></option>
+<%if (this.length>0){%>
+  <%for(var i=0; i< this.length; i++){%>
+<option value="<%=this[i].CurrencyCode%>"><%=this[i].CurrencyName%></option>
+<%}%>
+<%}else{%>
+  <option value="USD">US Dollars</option>
+<%}%>

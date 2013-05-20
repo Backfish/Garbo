@@ -1,0 +1,210 @@
+#promos{
+	overflow:hidden;height:380px;
+}
+.promos-holder{
+	height:380px;background-image: url(../../img/promos/bg.jpg);background-repeat:no-repeat;background-position:center top;background-size:100% auto;
+	.clearfix();
+}
+.promo-item{
+	width:320px;height:380px;float:left;position:relative;
+}
+.sportsbook-puff{
+	top:130px;
+	position:absolute;
+	left:-10px;
+	width:100%;
+	text-align:center;
+	font-size:25px;
+	line-height:29px;
+	font-weight:bold;
+	span{
+		background: rgba(6,79,53,0.9);
+		.box-shadow(0 3px 10px rgba(0, 0, 0, 0.5));
+		padding:0 5px;
+		color:#fff;
+		&.alt-color{
+			line-height:25px;
+			color:#56bc6f;
+		}
+	}
+}
+.puff-holder{
+	display:inline-block;
+	position:relative;
+}
+.bracket{
+	font-size: 100px;
+	font-weight: normal;
+	left: -35px;
+	position: absolute;
+	top: 20px;
+	color: rgba(6,79,53,0.7);
+}
+.bracket-right{
+	left:auto;
+	right:-35px;	
+}
+
+.dollar{
+	font-size: 20px;
+	line-height:20px;	
+	&.gold{
+		color: #ab8a44;
+	}
+	&.blue{
+		color: #0063a0;
+	}
+	&.medium{
+		font-size: 25px;
+		line-height:25px;
+	}
+	&.large{
+		font-size: 32px;
+		line-height:32px;
+	}
+}
+
+.btn-holder{
+	visibility:hidden;
+	position:absolute;
+	opacity:0;
+	bottom:0px;
+	width: 240px;
+	left: 50%;
+	margin-left:-130px;
+	text-align:center;
+	.btn-register{
+		font-weight:bold;
+		width:240px;
+		margin-bottom:10px;
+	}
+	.btn-product{
+		width:200px;
+		margin-left:20px;
+	}
+}
+
+/*Jackpot*/
+#numbers{
+    width: 260px;
+    height: 42px;
+    position:absolute;
+    left: 20px;
+    top: -5px;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    background:#FFF;
+    .border-radius(10px);
+    border:2px solid #F8D506;
+    .box-shadow(0 3px 10px rgba(0, 0, 0, 0.5));    
+}
+#numbers #jackpot-digit-0 span{
+     text-align:center;
+}
+
+#numbers span{
+    text-align:left;	
+    font-family: 'Oleo Script',cursive;
+    color: #784E04;    
+    font-style: oblique;
+    font-size:34px;
+}
+
+#numbers div.jackpot-separator{
+    float:left;
+    height:42px;
+    line-height:42px;
+}
+
+#numbers div.jackpot-separator span{
+    
+}
+
+#numbers ul{
+    float:left;
+    width:26px;
+    margin:0;
+}
+
+#numbers ul li{
+    margin:0;
+    display:block;
+    height:42px;
+    text-align:left;
+}
+
+#numbers ul li span{
+    line-height:42px;
+    display:block;    
+}
+
+/*end jackpot*/
+
+.amount-number{
+	&:first-child{
+		.border-radius(6px 0px 0px 6px);
+	}
+	&:last-child{
+		.border-radius(0px 6px 6px 0px);
+		margin-right:0;
+	}
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	display:inline-block;
+	text-align:center;
+	width:27px;
+	margin-right:2px;
+	padding-top:4px;
+	padding-bottom:4px;
+	font-family: 'Oleo Script', cursive;
+	background:#fff;
+	color:#784e04;
+	font-size:34px;
+	line-height:34px;
+}
+
+
+.register-push {
+  position: absolute;
+  display: block;
+  visibility: visible;
+  color: #fff;
+  top: 0px;
+  left: -125px;
+  padding: 5px;
+  font-size: 11px;
+  margin-left: -3px;
+   &:hover{
+        text-decoration: none;
+        color:#fff;
+    } 
+}
+
+// Wrapper for the tooltip content
+.register-push-inner
+{
+    display: block;
+    max-width: 100px;
+    padding: 3px 8px;
+    color: inherit;
+    text-align: center;
+    text-decoration: none;
+    background-color: #49AFCD;
+    .border-radius(2px);
+}
+
+// Arrows
+.register-push-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    right: 0;
+    top: 10px;
+    margin-left: -@tooltipArrowWidth;
+    border-width: @tooltipArrowWidth 0 @tooltipArrowWidth @tooltipArrowWidth;
+    border-left-color: #49AFCD;
+}
+
+

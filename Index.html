@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024, user-scalable=no">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="cleartype" content="on">
+    <title>Garbo</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="" />
+    <script src="static/resources/modernizr-2.5.3.min.js"></script>
+ 
+</head>
+<body id="body" class="logged-out">
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+    <div id="wrapper">
+        <header>
+        <nav id="navbar-user" class="navbar navbar-fixed-top" style="top:-130px;">
+            <div class="navbar-inner">
+                <a class="brand" href="#!">Garbo</a>
+                <ul class="nav" id="nav-section">
+                    <li>
+                        <a href="#!travel-and-adventure">Travel and ADventure</a>
+                    </li>
+                    <li>
+                        <a href="#!other-casino-category">Other Category</a>
+                    </li>
+                </ul>
+                <form action="#" class="navbar-form form-inline pull-right">
+                    <div class="pull-right logged-out" style="text-align:right;margin-top:10px;position:relative;">
+                        <a href="#!register" class="btn btn-min-length btn-mini btn-info link-register">Register <i class="icon-user"></i></a><br />
+                        <a href="#!login" class="btn btn-min-length btn-mini link-login">Login <i class="icon-angle-right"></i></a><br />
+                    </div>
+                </form>
+            </div>
+        </nav>
+        </header>
+        
+        
+        <div id="page">
+            <div id="page-start" class="page" data-destroy="false">
+                START
+            </div>
+            <div id="page-travel-and-adventure" class="page" data-destroy="false" style="display:none;"></div>
+            <div id="page-other-category" class="page" data-destroy="false" style="display:none;"></div>
+        </div>
+    </div>
+
+
+
+    <form action="#" id="frmLangKeys" style="margin:0;">
+        <input type="hidden" id="hidLoadingLabel" value="Loading..."/>
+        <input type="hidden" id="hidChooseLabel" value="Choose"/>
+        <input type="hidden" id="hidPlayLabel" value="Play"/>
+        <input type="hidden" id="hidForgottenPasswordMail" value="A mail has been sent with instructions on how to reset your password." />
+        <input type="hidden" id="hidPlayForFunLabel" value="Play for fun"/>
+        <input type="hidden" id="hidGameContentLoggedOut" value=""/>
+        <input type="hidden" id="hidGameContentLoggedInPlayForFun" value=""/>  
+        <input type="hidden" id="hidGameContentLoggedInPlayForReal" value=""/>   
+    </form>
+   
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.9.3/TweenMax.min.js"></script>
+    <script type="text/javascript" src="static/steal/steal.js?garbo"></script>
+    <script type="text/javascript">
+        <!--//<![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-19825106-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    //]]>-->
+    </script>
+</body>
+</html>    

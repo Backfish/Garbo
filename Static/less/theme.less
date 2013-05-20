@@ -1,0 +1,204 @@
+// Bootswatch.less
+// Swatch: Amelia
+// Version: 2.1.1
+// -----------------------------------------------------
+
+// TYPOGRAPHY
+// -----------------------------------------------------
+
+
+// SCAFFOLDING
+// -----------------------------------------------------
+
+body {
+	padding-top:90px;
+	margin:0;
+	background-attachement: fixed;
+	background: black url(../../img/bg-black.jpg) top center no-repeat;
+	background-size:100% auto;
+}
+// NAVBAR
+// -----------------------------------------------------
+
+#nav-section
+{
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+    p.section-puff
+    {
+        width:160px;
+        margin:0 auto;
+        font-size:10px;
+        line-height:12px;
+        text-align:center;
+    }
+}
+.btn-lang-country{
+	color:#fff;
+	font-size: 11px;
+    line-height: 1;
+	margin: 5px 0 0 0;
+	background: transparent;
+	text-transform:uppercase;
+	&:hover{
+		text-decoration:none;
+		color: #fff;
+	}
+}
+
+@media (max-width: 980px) {
+	body{
+		padding-top:0;
+	}
+	.navbar-fixed-top{
+		position:relative;
+	}
+}
+
+.navbar-fixed-top
+{
+    min-width: 980px;
+
+    .btn-group .btn, .input-prepend .btn, .input-append .btn
+    {
+        margin-top: 10px;
+    }
+
+    .navbar-inner
+    {
+        .border-radius(0);
+        padding-left: 20px;
+        padding-right: 20px;
+        filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+        background: #000 url(../img/top-bg.jpg) top center repeat-x;
+    }
+
+    .brand
+    {
+        width: 145px;
+        height: 70px;
+        margin: 15px 10px 5px 0;
+        text-indent: -9999em;
+        background: transparent url(../img/golazobet-logo.png) top left no-repeat;
+    }
+
+    .nav > .active > a, .nav > .active > a:hover, .nav > .active > a:focus
+    {
+        background-color: transparent;
+        .box-shadow(0 0 0 transparent);
+        color: #fff;
+        text-decoration: none;
+
+        .hangtag
+        {
+            color: #00ADEF;
+            visibility: visible;
+        }
+    }
+
+    p.sportsbook-link, p.casino-link
+    {
+        cursor:pointer;
+    }
+
+    .link-soon, .nav > li > a
+    {
+        font-family: 'Serifa', serif;
+        background-color: transparent;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 20px;
+        line-height: 20px;
+        padding: 5px 10px;
+        min-width: 160px;
+        text-align: center;
+        margin-right: 1px;
+        text-shadow: none;
+
+        &:hover
+        {
+            color: #fff;
+        }
+    }
+
+    .link-soon
+    {
+        display: block;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .nav a
+    {
+        &:hover
+        {
+            .hangtag
+            {
+                visibility: visible;
+            }
+        }
+    }
+
+    .hangtag
+    {
+        color: #fff;
+        visibility: hidden;
+    }
+
+    .btn-mini
+    {
+        text-align: left;
+        position: relative;
+        padding-right: 20px !important;
+        text-transform: uppercase;
+
+        i
+        {
+            position: absolute;
+            right: 4px;
+            top: 5px;
+        }
+    }
+
+    .coming-soon
+    {
+        position: relative;
+
+        .label
+        {
+            position: absolute;
+            right: 5px;
+            top: 9px;
+        }
+    }
+
+    .btn,
+    .btn-group
+    {
+        padding: 0px 4px;
+    }
+}
+.btn-min-length{
+	min-width:100px;
+}
+
+.footer-page{
+	background:transparent url('../img/bot-bg.png') top left repeat;
+	position:relative;
+	z-index:1;
+}
+#navbar-golazobet{
+	margin:0 auto;
+	padding:20px 0 60px 0;
+	font-size:12px;
+	a{
+		display:inline-block;
+		margin-left:20px;
+		color: #000;
+		transition: all 0.3s ease-in-out 0s;
+		&:hover{
+			color: @linkColorHover;
+		}
+	}
+}

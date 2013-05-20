@@ -1,0 +1,59 @@
+// Core variables and mixins
+@import "../../less/variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "../../less/mixins.less";
+
+.spinningWheel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index:10000;
+    background:transparent;
+}
+
+.spinningContainer
+{
+    visibility: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -80px;
+    margin-left: -80px;
+    width: 160px;
+    height: 160px;
+    background: #F9F9F9;
+    text-align: center;
+    text-shadow: 0;
+    border: 1px solid #F9F9F9;
+    .box-shadow(0 0 4px 4px rgba(68,68,68,0.5));
+    .border-radius(80px);
+
+    &.spinningSection
+    {
+        margin-top: -150px;
+        margin-left: -150px;
+        width: 300px;
+        height: 300px;
+        .border-radius(150px);
+        background: #49AFCD;
+        color: #fff;
+        border-color: #49AFCD;
+        .loadingInfo
+        {
+            font-size:20px;  
+        }
+    }
+}
+.loadingInfo
+{
+    position:absolute;
+    width:100%;
+    left:0;
+    height:30px;
+    line-height:30px;
+    top:50%;
+    margin-top:-15px;
+    font-family: 'Serifa';
+    text-transform:uppercase;
+}

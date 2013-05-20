@@ -1,0 +1,86 @@
+// Logged-in/Logged-out
+// -----------
+
+.logged-out .logged-in{
+	display:none;
+}
+.logged-in .logged-out{
+	display:none;
+}
+
+
+.slogan{
+	position:absolute;
+	top:50px;
+	height:351px;
+	width:400px;
+	margin-left:-200px;
+	visibility:hidden;
+	left:50%;
+	text-align:center;
+	visibility:hidden;
+	.slogan-pic{
+		position:absolute;
+		left:0;
+		width:400px;
+		overflow:hidden;
+		background-color:transparent;
+		background-image: url(../../img/hubiera-apostado.png);
+		background-repeat: no-repeat;
+	}
+	.hubiera{
+		height:110px;
+		top:0;
+		background-position: 0px 0px;
+	}
+	.apostado{
+		height:95px;
+		top:110px;
+		background-position: 0px -110px;
+	}
+	.noexiste{
+		height:147px;
+		top:204px;
+		background-position: 0px -204px;
+	}
+}
+
+
+//Page specifics
+#wrapper{
+	.box-shadow(0 5px 5px #A2A2A2);
+	min-height:800px;
+	position:relative;
+	z-index:2;
+}
+
+#page{
+	visibility:hidden;
+	width:100%;
+	min-width:980px;
+}
+
+.page{
+    position:relative;
+    z-index:1;
+    top:0;
+	padding-bottom:20px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+//FONT-SPECIALS
+.serif{
+	font-family:'Serifa', serif;
+}
+.sans-serif{
+	font-family: 'Helvetica Neue', Helvetica, Arial;
+}
+.script{
+	font-family: 'Oleo Script', cursive;
+}

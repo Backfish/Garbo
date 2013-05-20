@@ -1,0 +1,200 @@
+@import "../../../less/variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "../../../less/mixins.less";
+#casino-section
+{
+    h1, p
+    {
+        color: #000;
+        text-shadow: 1px 1px 1px rgba(204,204,204,0.8);
+    }
+
+        p.only-play-for-real
+        {
+            color: #fff;
+            text-align: center;
+            text-shadow: none;
+            margin-top: 10px;
+        }
+
+    .recommended-list
+    {
+        width: 980px;
+        min-height: 275px;
+    }
+
+    .sortable-list
+    {
+        display: none;
+    }
+
+    .navbar .nav > li > a
+    {
+        padding-left:10px;
+        padding-right:10px;
+    }
+}
+.casino-puff{
+    margin:0 auto;
+    width:980px;
+}
+.gamelist-holder
+{
+    padding-top:62px;
+}
+.games-sort-holder{
+	width:980px;
+	margin:0;
+    position:fixed;
+    left:50%;
+    margin-left:-490px;
+    margin-top:5px;
+    z-index:3;
+}
+
+li.recommended-header-holder
+{
+    float: left;
+    position: relative;
+    width: 225px;
+    height: 210px;
+    overflow: hidden;
+    margin: 0 0 5px 0px;
+    .border-radius(2px);
+    .background-clip(padding-box);
+    h3{
+        text-shadow:2px 3px 2px rgba(0, 0, 0, 0.5);
+        padding:10px 0 10px 15px;
+        margin-right:10px;
+        height:48px;
+        color:#fff;
+        .box-shadow(0 3px 20px rgba(0,0,0,0.5));
+   }
+}
+
+.popular-games > .recommended-header-holder
+{
+    background: transparent url(../../../img/casino/popular-games.jpg) bottom left no-repeat;
+    h3
+    {
+        background-color:#492466;
+    }
+}
+.recommended-games > .recommended-header-holder
+{
+    background: transparent url(../../../img/casino/recommended-games.jpg) bottom left no-repeat;
+    h3
+    {
+        background-color:#1F8040;
+    }
+}
+.new-games > .recommended-header-holder
+{
+    background: transparent url(../../../img/casino/new-games.jpg) bottom left no-repeat;
+    h3
+    {
+        background-color:#822367;
+    }
+}
+
+
+.item-list{
+	margin-bottom: @baseLineHeight;
+	margin-left:0;
+	list-style: none;
+	.clearfix();
+	min-width:800px;
+	margin-left:auto;
+	margin-right:auto;
+	li.game-list-item-holder{
+        .border-radius(2px);
+        .background-clip(padding-box);
+		float:left;
+		position:relative;
+		width:245px;
+		height:275px;	
+		overflow:hidden;
+		margin:0 0 5px 5px;
+	}
+	.dropdown-menu{
+		margin-left:-30px;
+		width:225px;
+	}
+	.btn-group{
+		width:140px;
+	}
+	.dropdown-toggle{
+		width:140px;
+	}
+	.games-list-item{
+		width:245px;
+		height:275px;
+		background-color:#004b67;
+		visibility:visible;
+		background-repeat:no-repeat;
+		&:hover{
+			background-color:#e98817;
+		}
+	}
+	.game-item-hover{
+		width: 245px;
+		height:275px;
+		display:none;
+		text-align:center;
+		background: rgba(0,0,0,0.5);
+		position:absolute;
+		top:0;
+		left:0;
+		z-index:3;
+		.btn-game{
+			margin-top:70px;
+			margin-left:auto;
+			margin-right:auto;
+			width:170px;
+		}
+		.btn-game-fun{
+			margin-left:auto;
+			margin-right:auto;
+			margin-top:20px;
+			width:165px;
+		}
+		a.btn-game,a.btn-game-fun{
+			width:140px;
+		}
+	}
+	
+	.game-img{
+		height:170px;
+		width:205px;
+		padding:20px;
+	}
+	.game-img.game-img-large{
+		width:245px;
+		height:210px;
+		padding:0;
+	}
+	h2{
+		text-transform:uppercase;
+		font-family: 'Serifa', 'Helvetica Neue';
+		font-weight:normal;
+		color:#efefef;
+		font-size:16px;
+		line-height:20px;
+		padding:0 20px;
+		margin:0;
+	}
+	.info-jackpot{
+		color:#fff;
+		padding: 0 20px;
+	}
+	p{
+		text-align:left;
+		padding: 0 20px;
+		font-size:12px;
+		line-height:14px;
+		color:#00aeef;
+	}
+}
+
+
+
+

@@ -1,0 +1,45 @@
+<!-
+/Static/Garbo/User/Personaldetails
+HTML for controller User.Personaldetails, inherits Core.Form
+Less/Css specifics is found in /Static/Garbo/User/Personaldetails all other is twitter bootstrap.
+-->
+<form id="frmUpdatePersonalDetails" action="#" class="form-vertical">
+    <fieldset>
+        <div class="controls">
+            <input disabled="disabled" class="disabled span6" id="Email" type="text" />
+        </div>
+
+        <div class="controls controls-row">
+            <input disabled="disabled" class="disabled" type="text" class="span4" id="FirstName" />
+            <input disabled="disabled" class="disabled" type="text" class="span4" id="LastName" />
+        </div>
+
+        <div class="controls">
+            <input type="text" class="span8" maxlength="160" name="Address" id="Address" placeholder="Address" data-placement="right" data-content="Update your address here." />
+        </div>
+
+        <div class="controls controls-row">
+            <input type="text" class="span3" maxlength="12" name="ZipCode" id="ZipCode" placeholder="Zipcode" data-placement="right" data-content="Update your zipcode here." />
+            <input type="text" class="span5" maxlength="25" name="City" id="City" placeholder="City" data-placement="right" data-content="Update your city here." />
+        </div>
+        
+        <div class="controls">
+            <select name="Country" id="Country">
+		<option value="SE">Sweden</option>
+		</select>
+        </div>  
+                   
+        <div class="controls controls-row">
+            +46
+            <input type="text" class="span6" maxlength="20" name="Phone" id="Phone" placeholder="Phone" data-placement="right" data-content="Update your mobile phonenumber here." />
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-info btn-large pull-right">Save my changes</button>
+        </div>
+    </fieldset>
+</form>
+
+<script>
+    new User.Personaldetails('#frmUpdatePersonalDetails', { url: '/api/PlayerInfo/UpdatePlayer', validator: '/api/PlayerValidator/Validate' });
+</script>
