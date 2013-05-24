@@ -16,7 +16,6 @@ function get_random_color() {
 }
 
 jQuery(document).ready(function() {
-
     for (x in menu) {
         jQuery('<a>', {
             id: 'menu-' + x,
@@ -25,38 +24,20 @@ jQuery(document).ready(function() {
         }).appendTo('#sidebar');
     }
 
-    var boxHeight = jQuery('.page').height();
-
-    jQuery('<div />', {
-        id: 'game-0',
-        'class': 'game',
-        css: {
-            'width': boxHeight * 0.7 * (4 / 3),
-            'height': boxHeight * 0.7,
-            'background-color': get_random_color()
-        }
-    }).appendTo('.games');
-
-    for (var i = 1; i < 40; i++) {
+    for (var i = 0; i < 20; i++) {
         jQuery('<div />', {
-            id: 'game-' + i,
-            'class': 'game',
+            'class': 'box',
             css: {
-                'width': boxHeight * (4 / 9),
-                'height': boxHeight / 3,
+                'width': '80px',
+                'height': '80px',
                 'background-color': get_random_color()
             }
-        }).appendTo('.games');
+        }).appendTo('#menu');
     }
 
-    jQuery('.games').isotope({
-        /*itemSelector: '.game',
-         layoutMode: 'fitColumns'*/
-        layoutMode: 'cellsByRow',
-        cellsByRow: {
-            columnWidth: boxHeight * (4 / 3),
-            rowHeight: boxHeight * 4
-        }
+    jQuery('#menu').isotope({
+        itemSelector: '.box',
+        layoutMode: 'fitRows'
     });
 
     var swipe = {
@@ -86,9 +67,6 @@ jQuery(document).ready(function() {
         move: function(distance, duration) {
             var translate = (distance < 0 ? '' : '-') + Math.abs(distance).toString();
 
-            if (translate > 0)
-                return;
-
             jQuery(swipe.element).css({
                 'transition-duration': (duration / 1000).toFixed(1) + 's',
                 'transform': 'skewX(-10deg) translateX(' + translate + 'px)'
@@ -96,5 +74,19 @@ jQuery(document).ready(function() {
         }
     };
 
-    swipe.init(jQuery(".games-container"));
+    swipe.init(jQuery("#menu-container"));
+
+    //Init touch swipe
+
+
+    /**
+     * Catch each phase of the swipe.
+     * move : we drag the div.
+     * cancel : we animate back to where we were
+     * end : we animate to the next image
+     */
+
+
 });
+
+
