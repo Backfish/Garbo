@@ -25,38 +25,62 @@ jQuery(document).ready(function() {
         }).appendTo('#sidebar');
     }
 
-    var boxHeight = jQuery('.page').height();
+    var boxHeight = jQuery('.page').height(), boxWidth = boxHeight * (screen.width / screen.height);
 
     jQuery('<div />', {
         id: 'game-0',
         'class': 'game',
         css: {
-            'width': boxHeight * 0.7 * (4 / 3),
+            'width': boxWidth * 0.7,
             'height': boxHeight * 0.7,
             'background-color': get_random_color()
         }
     }).appendTo('.games');
 
-    for (var i = 1; i < 40; i++) {
+    jQuery('<div />', {
+        id: 'game-1',
+        'class': 'game',
+        css: {
+            'width': boxWidth * 0.3,
+            'height': boxHeight * 0.3,
+            'background-color': get_random_color()
+        }
+    }).appendTo('.games');
+
+    jQuery('<div />', {
+        id: 'game-2',
+        'class': 'game',
+        css: {
+            'width': boxWidth * 0.2,
+            'height': boxHeight * 0.3,
+            'background-color': get_random_color()
+        }
+    }).appendTo('.games');
+    jQuery('<div />', {
+        id: 'game-2',
+        'class': 'game',
+        css: {
+            'width': boxWidth * 0.2,
+            'height': boxHeight * 0.3,
+            'background-color': get_random_color()
+        }
+    }).appendTo('.games');
+
+    for (var i = 3; i < 40; i++) {
         jQuery('<div />', {
             id: 'game-' + i,
             'class': 'game',
             css: {
-                'width': boxHeight * (4 / 9),
-                'height': boxHeight / 3,
+                'width': parseInt(boxWidth * 0.3),
+                'height': parseInt(boxHeight * 0.3),
                 'background-color': get_random_color()
             }
         }).appendTo('.games');
     }
 
     jQuery('.games').isotope({
-        /*itemSelector: '.game',
-         layoutMode: 'fitColumns'*/
-        layoutMode: 'cellsByRow',
-        cellsByRow: {
-            columnWidth: boxHeight * (4 / 3),
-            rowHeight: boxHeight * 4
-        }
+        itemSelector: '.game',
+        layoutMode: 'straightDown'
     });
 
     var swipe = {
