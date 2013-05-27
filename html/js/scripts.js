@@ -3,25 +3,38 @@ var menu = {
         label: 'Menu',
         icon: 'all-games.png',
         href: '#',
-        backgroundColor: '#b14e8f'
+        css: {
+            backgroundColor: '#b14e8f'
+        },
+        on:{
+            click: function(){
+                
+            }
+        }
     },
     'login': {
         label: 'Login',
         icon: 'login.png',
         href: '#',
-        backgroundColor: '#24b2bf'
+        css: {
+            backgroundColor: '#24b2bf'
+        }
     },
     'new-account': {
         label: 'New account',
         icon: 'new-account.png',
         href: '#',
-        backgroundColor: '#d48c27'
+        css: {
+            backgroundColor: '#d48c27'
+        }
     },
     'all-games': {
         label: 'All games',
         icon: 'all-games.png',
         href: '#',
-        backgroundColor: '#b14e8f'
+        css: {
+            backgroundColor: '#b14e8f'
+        }
     }
 };
 
@@ -37,15 +50,13 @@ function get_random_color() {
 jQuery(document).ready(function() {
 
     for (x in menu) {
-        console.log(x);
-        jQuery('<a>', {
+        menu[x] = jQuery.extend({
             id: 'menu-item-' + x,
-            href: menu[x].href,
             html: '<img alt="" src="images/icons/' + menu[x].icon + '" /><span>' + menu[x].label + '</span>',
-            css: {
-                backgroundColor: menu[x].backgroundColor
-            }
-        }).appendTo('#sidebar');
+            css: {},
+            on: {}
+        }, menu[x]);
+        jQuery('<a>', menu[x]).appendTo('#sidebar');
     }
 
     var boxHeight = jQuery('.page').height() * 0.1, boxWidth = boxHeight * (screen.width / screen.height);
@@ -95,7 +106,7 @@ jQuery(document).ready(function() {
             'class': 'game',
             css: {
                 'width': boxWidth * 3,
-                'height': boxHeight * (i % 4 === 3 ? 3 : 2.3),
+                'height': boxHeight * ((i % 4 === 3) ? 3 : 2.3),
                 'background-color': get_random_color()
             }
         }).appendTo('.games');

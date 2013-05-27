@@ -1,23 +1,27 @@
-@media all and (max-width: 480px){
+@media all and (max-width: 640px){
     a#logo{
         width:14%;
     }
-    
+
     .page{
         height:100%;
     }
     
-    nav#sidebar{
-        box-shadow:5px -10px 25px 5px #000;
+    nav#sidebar-menu{
+        box-shadow:5px 0px 25px 5px #000;
         height:100%;
         padding: 0 !important;
         border-left:1px solid #360556;
     }
-    
+
     nav#sidebar > a{
-        font-size:0.4em;
+        font-size:0.25em;
     }
-    
+
+    nav#sidebar > a#menu-item-all-games{
+        display:none;
+    }
+
     nav#footer{
         display:none;
     }

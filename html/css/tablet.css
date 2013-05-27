@@ -1,4 +1,4 @@
-@media all and (min-width: 480px) and (max-width:980px){
+@media all and (min-width: 641px) and (max-width:980px){
         
     nav#sidebar{
         max-width:85px;
@@ -6,6 +6,10 @@
 
     nav#sidebar > a{
         background-color:transparent !important;
+    }
+    
+    nav#sidebar > a#menu-item-menu{
+        display:none;
     }
     
     nav#sidebar > a:hover{

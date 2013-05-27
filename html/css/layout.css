@@ -87,6 +87,7 @@ nav#sidebar{
     padding:2% 0;
     display:block;
     z-index:9;
+    overflow:hidden;
 }
 
 nav#sidebar > a{
@@ -133,6 +134,7 @@ nav#footer > a{
     display:inline-block;
     padding: 0 20px;
     color:#340753;
+    text-transform:uppercase;
 }
 
 .page{
