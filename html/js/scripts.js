@@ -6,9 +6,19 @@ var menu = {
         css: {
             backgroundColor: '#b14e8f'
         },
-        on:{
-            click: function(){
-                
+        on: {
+            click: function() {
+                if (jQuery('#sidebar').hasClass('expanded')) {
+                    jQuery('#sidebar').removeClass('expanded').animate({
+                        right: 0
+                    });
+                } else {
+                    jQuery('#sidebar').addClass('expanded').animate({
+                        right: '30%'
+                    });
+                }
+
+                return false;
             }
         }
     },
@@ -54,9 +64,10 @@ jQuery(document).ready(function() {
             id: 'menu-item-' + x,
             html: '<img alt="" src="images/icons/' + menu[x].icon + '" /><span>' + menu[x].label + '</span>',
             css: {},
-            on: {}
+            on: {}            
         }, menu[x]);
-        jQuery('<a>', menu[x]).appendTo('#sidebar');
+        
+        jQuery('<a>', menu[x]).data('role', 'button').appendTo('#sidebar-menu');
     }
 
     var boxHeight = jQuery('.page').height() * 0.1, boxWidth = boxHeight * (screen.width / screen.height);

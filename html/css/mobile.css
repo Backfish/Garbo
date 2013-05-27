@@ -14,14 +14,18 @@
         border-left:1px solid #360556;
     }
 
-    nav#sidebar > a{
+    nav#sidebar-menu > a{
         font-size:0.25em;
     }
 
-    nav#sidebar > a#menu-item-all-games{
+    nav#sidebar-menu > a#menu-item-all-games{
         display:none;
     }
 
+    nav#sidebar-hidemenu{
+        
+    }
+    
     nav#footer{
         display:none;
     }

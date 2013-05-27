@@ -4,15 +4,15 @@
         max-width:85px;
     }
 
-    nav#sidebar > a{
+    nav#sidebar-menu > a{
         background-color:transparent !important;
     }
     
-    nav#sidebar > a#menu-item-menu{
+    nav#sidebar-menu > a#menu-item-menu{
         display:none;
     }
     
-    nav#sidebar > a:hover{
+    nav#sidebar-menu > a:hover{
         color:#fff;
     }   
 }
