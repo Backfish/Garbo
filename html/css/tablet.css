@@ -1,4 +1,14 @@
-nav#sidebar{
-    background-image:url('../images/sidebar.png');
-    background-size:100% auto;
+@media all and (min-width: 480px) and (max-width:980px){
+        
+    nav#sidebar{
+        max-width:85px;
+    }
+
+    nav#sidebar > a{
+        background-color:transparent !important;
+    }
+    
+    nav#sidebar > a:hover{
+        color:#fff;
+    }   
 }

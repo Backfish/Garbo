@@ -1,8 +1,27 @@
 var menu = {
-    'my-account': {
-        label: 'My account',
-        icon: 'my-account.png',
-        href: '#'
+    'menu': {
+        label: 'Menu',
+        icon: 'all-games.png',
+        href: '#',
+        backgroundColor: '#b14e8f'
+    },
+    'login': {
+        label: 'Login',
+        icon: 'login.png',
+        href: '#',
+        backgroundColor: '#24b2bf'
+    },
+    'new-account': {
+        label: 'New account',
+        icon: 'new-account.png',
+        href: '#',
+        backgroundColor: '#d48c27'
+    },
+    'all-games': {
+        label: 'All games',
+        icon: 'all-games.png',
+        href: '#',
+        backgroundColor: '#b14e8f'
     }
 };
 
@@ -18,21 +37,25 @@ function get_random_color() {
 jQuery(document).ready(function() {
 
     for (x in menu) {
+        console.log(x);
         jQuery('<a>', {
-            id: 'menu-' + x,
+            id: 'menu-item-' + x,
             href: menu[x].href,
-            html: '<img alt="" src="images/' + menu[x].icon + '" /><span>' + menu[x].label + '</span>'
+            html: '<img alt="" src="images/icons/' + menu[x].icon + '" /><span>' + menu[x].label + '</span>',
+            css: {
+                backgroundColor: menu[x].backgroundColor
+            }
         }).appendTo('#sidebar');
     }
 
-    var boxHeight = jQuery('.page').height(), boxWidth = boxHeight * (screen.width / screen.height);
+    var boxHeight = jQuery('.page').height() * 0.1, boxWidth = boxHeight * (screen.width / screen.height);
 
     jQuery('<div />', {
         id: 'game-0',
         'class': 'game',
         css: {
-            'width': boxWidth * 0.7,
-            'height': boxHeight * 0.7,
+            'width': boxWidth * 7,
+            'height': boxHeight * 7,
             'background-color': get_random_color()
         }
     }).appendTo('.games');
@@ -41,8 +64,8 @@ jQuery(document).ready(function() {
         id: 'game-1',
         'class': 'game',
         css: {
-            'width': boxWidth * 0.3,
-            'height': boxHeight * 0.3,
+            'width': boxWidth * 3,
+            'height': boxHeight * 3,
             'background-color': get_random_color()
         }
     }).appendTo('.games');
@@ -51,37 +74,53 @@ jQuery(document).ready(function() {
         id: 'game-2',
         'class': 'game',
         css: {
-            'width': boxWidth * 0.2,
-            'height': boxHeight * 0.3,
+            'width': boxWidth * 2,
+            'height': boxHeight * 3,
             'background-color': get_random_color()
         }
     }).appendTo('.games');
     jQuery('<div />', {
-        id: 'game-2',
+        id: 'game-3',
         'class': 'game',
         css: {
-            'width': boxWidth * 0.2,
-            'height': boxHeight * 0.3,
+            'width': boxWidth * 2,
+            'height': boxHeight * 3,
             'background-color': get_random_color()
         }
     }).appendTo('.games');
 
-    for (var i = 3; i < 40; i++) {
+    for (var i = 0; i < 30; i++) {
         jQuery('<div />', {
             id: 'game-' + i,
             'class': 'game',
             css: {
-                'width': parseInt(boxWidth * 0.3),
-                'height': parseInt(boxHeight * 0.3),
+                'width': boxWidth * 3,
+                'height': boxHeight * (i % 4 === 3 ? 3 : 2.3),
                 'background-color': get_random_color()
             }
         }).appendTo('.games');
     }
 
-    jQuery('.games').isotope({
+    /*jQuery('.games').masonry({
+     itemSelector: '.game',
+     columnWidth: boxWidth,
+     rowHeight: boxHeight * 10,
+     animationOptions: {
+     duration: 400
+     }
+     });*/
+
+    args = {
         itemSelector: '.game',
-        layoutMode: 'straightDown'
-    });
+        layoutMode: 'cellsByColumn'
+    };
+
+    args[args.layoutMode] = {
+        columnWidth: boxWidth,
+        rowHeight: boxHeight
+    };
+
+    jQuery('.games').isotope(args);
 
     var swipe = {
         element: null,
