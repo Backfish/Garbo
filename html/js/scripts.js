@@ -59,9 +59,25 @@ function get_random_color() {
 
 jQuery(document).ready(function() {
 
-    jQuery.fn.transformMatrix = function(matrix) {
-        if (typeof matrix == 'undefined') {
-            return jQuery(this).data('transform-matrix') || jQuery(this).css('transform');
+    jQuery.fn.transformMatrix = function(matrix, value) {
+        if (typeof matrix === 'undefined') {
+            if (jQuery(this).data('transform-matrix')) {
+                matrix = jQuery(this).data('transform-matrix');
+            } else {
+                var result = jQuery(this).css('transform').match(/\(([0-9\,\.\s])+\)/gi);
+
+                if (result) {
+                    matrix = result[0].replace(/\s|\(|\)|px/gi, '').split(',');
+                } else {
+                    matrix = [1, 0, 0, 1, 0, 0];
+                }
+            }
+
+            jQuery(this).data('transform-matrix', matrix);
+
+            return matrix;
+        } else if(typeof value !== 'undefined'){
+            
         }
 
         return jQuery(this).css({
@@ -184,11 +200,19 @@ jQuery(document).ready(function() {
             if (translate > 0)
                 return;
 
-            jQuery(swipe.element).css({
-                'transition-duration': (duration / 1000).toFixed(1) + 's',
-                /*'transform': 'skewX(-10deg) translateX(' + translate + 'px)'*/
-                'transform': 'matrix(1.02, 0, 0, 1, 0, ' + translate + 'px);'
-            });
+            /*jQuery(swipe.element).css({
+             'transition-duration': (duration / 1000).toFixed(1) + 's',
+             'transform': 'skewX(-10deg) translateX(' + translate + 'px)'
+             'transform': 'matrix(1.02, 0, 0, 1, 0, ' + translate + 'px);'
+             });*/
+            var matrix = jQuery(swipe.element)
+                    .transformMatrix();
+
+            matrix[4] = translate;
+
+            jQuery(swipe.element)
+                    .transformMatrix(matrix)
+                    .css('transition-duration', (duration / 1000).toFixed(1) + 's');
         }
     };
 
