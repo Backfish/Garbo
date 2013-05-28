@@ -31,7 +31,7 @@ var menu = {
         }
     },
     'new-account': {
-        label: 'New account',
+        label: 'New accoun',
         icon: 'new-account.png',
         href: '#',
         css: {
@@ -59,15 +59,25 @@ function get_random_color() {
 
 jQuery(document).ready(function() {
 
+    jQuery.fn.transformMatrix = function(matrix) {
+        if (typeof matrix == 'undefined') {
+            return jQuery(this).data('transform-matrix') || jQuery(this).css('transform');
+        }
+
+        return jQuery(this).css({
+            transform: 'matrix(' + matrix.join(',') + ')'
+        }).data('transform-matrix', matrix);
+    };
+
     for (x in menu) {
         menu[x] = jQuery.extend({
             id: 'menu-item-' + x,
             html: '<img alt="" src="images/icons/' + menu[x].icon + '" /><span>' + menu[x].label + '</span>',
             css: {},
-            on: {}            
+            on: {}
         }, menu[x]);
-        
-        jQuery('<a>', menu[x]).data('role', 'button').appendTo('#sidebar-menu');
+
+        jQuery('<a data-role="button">', menu[x]).appendTo('#sidebar-menu');
     }
 
     var boxHeight = jQuery('.page').height() * 0.1, boxWidth = boxHeight * (screen.width / screen.height);
@@ -176,7 +186,8 @@ jQuery(document).ready(function() {
 
             jQuery(swipe.element).css({
                 'transition-duration': (duration / 1000).toFixed(1) + 's',
-                'transform': 'skewX(-10deg) translateX(' + translate + 'px)'
+                /*'transform': 'skewX(-10deg) translateX(' + translate + 'px)'*/
+                'transform': 'matrix(1.02, 0, 0, 1, 0, ' + translate + 'px);'
             });
         }
     };

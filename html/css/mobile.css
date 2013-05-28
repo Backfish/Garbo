@@ -7,11 +7,16 @@
         height:100%;
     }
     
+    div#sidebar{
+        width:-webkit-calc(10%+2px);
+        width:calc(10%+2px);
+    }
+    
     nav#sidebar-menu{
         box-shadow:5px 0px 25px 5px #000;
         height:100%;
         padding: 0 !important;
-        border-left:1px solid #360556;
+        border-left:2px solid #360556;
     }
 
     nav#sidebar-menu > a{
@@ -23,10 +28,22 @@
     }
 
     nav#sidebar-hidemenu{
-        
+        border-left:2px solid #360556;
     }
     
     nav#footer{
         display:none;
+    }
+    
+    .games-container{
+        -webkit-transform:matrix(1, 0, 0, 1, 0, 0);
+        -moz-transform:matrix(1, 0, 0, 1, 0, 0);
+        transform: matrix(1, 0, 0, 1, 0, 0);
+    }
+    
+    .games{
+        -webkit-transform:matrix(1, 0, 0, 1, 0, 0);
+        -moz-transform:matrix(1, 0, 0, 1, 0, 0);
+        transform: matrix(1, 0, 0, 1, 0, 0);
     }
 }

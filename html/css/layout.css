@@ -150,6 +150,7 @@ nav#footer > a{
     padding: 0 20px;
     color:#340753;
     text-transform:uppercase;
+    text-overflow:ellipsis;
 }
 
 .page{
@@ -196,21 +197,24 @@ nav#footer > a{
 }
 
 .games-container{
-    -webkit-transform:skewX(-10deg);
-    -moz-transform:skewX(-10deg);
-    transform: skewX(-10deg) translateX(0);
     background: none repeat scroll 0 0 #ffa72a;
     height: 100%;
     margin-left: 50%;
     overflow: hidden;
     width: 100%;
     position:absolute;
+
+    -webkit-transform:matrix(1, -5,67128181961771, 0, 1, 0, 0);
+    -moz-transform:matrix(1, -5,67128181961771, 0, 1, 0, 0);
+    transform: matrix(1, -5,67128181961771, 0, 1, 0, 0);
 }
 
 .games{
     width:200%;
     height:100%;
     display:block;
-    -webkit-transform:skewX(10deg);
-    -moz-transform:skewX(10deg);
+
+    -moz-transform:matrix(1, 5,67128181961771, 0, 1, 0, 0);
+    -webkit-transform:matrix(1, 5,67128181961771, 0, 1, 0, 0);
+    transform: matrix(1, 5,67128181961771, 0, 1, 0, 0);
 }

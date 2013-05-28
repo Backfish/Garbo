@@ -1,5 +1,5 @@
 @media all and (min-width: 641px) and (max-width:980px){
-        
+
     nav#sidebar{
         max-width:85px;
     }
@@ -7,12 +7,20 @@
     nav#sidebar-menu > a{
         background-color:transparent !important;
     }
-    
+
     nav#sidebar-menu > a#menu-item-menu{
         display:none;
     }
-    
+
     nav#sidebar-menu > a:hover{
         color:#fff;
-    }   
+    }
+
+    .games-container{
+       
+    }
+
+    .games{
+        
+    }
 }
