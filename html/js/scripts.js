@@ -10,11 +10,11 @@ var menu = {
             click: function() {
                 if (jQuery('#sidebar').hasClass('expanded')) {
                     jQuery('#sidebar').removeClass('expanded').animate({
-                        right: 0
+                        right: '-29.6%'
                     });
                 } else {
                     jQuery('#sidebar').addClass('expanded').animate({
-                        right: '30%'
+                        right: '0'
                     });
                 }
 
@@ -143,7 +143,7 @@ jQuery(document).ready(function() {
             
             jQuery(swipe.element)
                     .transformMatrix(4, swipe.start - distance)
-                    .css('transition-duration', (duration / 1000).toFixed(1) + 's');
+                    .css('transition', 'ease-in ' + (duration / 1000).toFixed(1) + 's');
         }
     };
 

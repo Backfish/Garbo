@@ -17,8 +17,8 @@ jQuery(document).ready(function() {
                     return parseFloat(jQuery.fn.transformMatrix.getTransformMatrix(this)[matrix]);
                 } else {
                     var m = jQuery.fn.transformMatrix.getTransformMatrix(this);
-                    console.log(m); m[matrix] = value;
-                    return jQuery(this).data('transform-matrix', m);
+                    m[matrix] = parseFloat(value);
+                    return jQuery.fn.transformMatrix.setTransformMatrix(this, m);
                 }
 
                 break;

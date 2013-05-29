@@ -17,13 +17,11 @@
         height:100%;
         padding: 0 !important;
         border-left:2px solid #360556;
+        border-right:2px solid #360556;
+        z-index:2;
     }
 
-    nav#sidebar-menu > a{
-        font-size:0.25em;
-    }
-
-    nav#sidebar-menu > a:after{
+    nav#sidebar-menu:after, nav#sidebar-menu:before {
         left: 100%;
         border: solid transparent;
         content: " ";
@@ -31,13 +29,25 @@
         width: 0;
         position: absolute;
         pointer-events: none;
+    }
 
-
+    nav#sidebar-menu:after {
         border-color: rgba(136, 183, 213, 0);
-        border-left-color: #88b7d5;
-        border-width: 19px;
-        top: 50%;
-        margin-top: -19px;
+        border-left-color: #b14e8f;
+        border-width: 7.5px;
+        top: 7%;
+        margin-top: -7.5px;
+    }
+    nav#sidebar-menu:before {
+        border-color: rgba(194, 225, 245, 0);
+        border-left-color: #360556;
+        border-width: 9px;
+        top: 7%;
+        margin-top: -9px;
+    }
+
+    nav#sidebar-menu > a{
+        font-size:0.25em;        
     }
 
     nav#sidebar-menu > a#menu-item-all-games{
@@ -46,6 +56,7 @@
 
     nav#sidebar-hidemenu{
         border-left:2px solid #360556;
+        z-index:1;
     }
 
     nav#footer{
