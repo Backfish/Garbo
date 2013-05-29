@@ -69,94 +69,55 @@ jQuery(document).ready(function() {
         jQuery('<a />', menu[x]).attr('data-role', 'button').appendTo('#sidebar-menu');
     }
 
-    var boxHeight = jQuery('.page').height() * 0.1, boxWidth = boxHeight * (screen.width / screen.height);
+    var boxHeight = jQuery('.page').height() * 0.25, boxWidth = boxHeight * (jQuery('#wrapper').width() / jQuery('#wrapper').height());
 
-    jQuery('<div />', {
-        id: 'game-0',
-        'class': 'game',
-        css: {
-            'width': boxWidth * 7,
-            'height': boxHeight * 7,
-            'background-color': get_random_color()
-        }
-    }).appendTo('.games');
+    var gamesCount = 30;
 
-    jQuery('<div />', {
-        id: 'game-1',
-        'class': 'game',
-        css: {
-            'width': boxWidth * 3,
-            'height': boxHeight * 3,
-            'background-color': get_random_color()
-        }
-    }).appendTo('.games');
-
-    jQuery('<div />', {
-        id: 'game-2',
-        'class': 'game',
-        css: {
-            'width': boxWidth * 2,
-            'height': boxHeight * 3,
-            'background-color': get_random_color()
-        }
-    }).appendTo('.games');
-    jQuery('<div />', {
-        id: 'game-3',
-        'class': 'game',
-        css: {
-            'width': boxWidth * 2,
-            'height': boxHeight * 3,
-            'background-color': get_random_color()
-        }
-    }).appendTo('.games');
-
-    for (var i = 0; i < 30; i++) {
+    for (var i = 0; i <= gamesCount; i++) {
         jQuery('<div />', {
             id: 'game-' + i,
             'class': 'game',
             css: {
-                'width': boxWidth * 3,
-                'height': boxHeight * ((i % 4 === 3) ? 3 : 2.3),
-                'background-color': get_random_color()
+                'width': boxWidth * (i === 0 ? 3 : 1),
+                'height': boxHeight * (i === 0 ? 3 : 1),
+                'background-color': (i === 0 ? 'transparent' : get_random_color())
             }
         }).appendTo('.games');
     }
 
-    /*jQuery('.games').masonry({
-     itemSelector: '.game',
-     columnWidth: boxWidth,
-     rowHeight: boxHeight * 10,
-     animationOptions: {
-     duration: 400
-     }
-     });*/
-
-    args = {
-        itemSelector: '.game',
-        layoutMode: 'cellsByColumn'
-    };
-
-    args[args.layoutMode] = {
-        columnWidth: boxWidth,
-        rowHeight: boxHeight
-    };
-
-    jQuery('.games').isotope(args);
+    jQuery('.games')
+        .css({
+            width: parseInt(boxWidth * gamesCount / 4),
+            height: boxHeight * 4,
+            marginLeft: -4 * boxHeight * jQuery('.games').transformMatrix(2)
+        })
+        .isotope({
+            itemSelector: '.game',
+            layoutMode: 'masonryHorizontal',
+            masonryHorizontal: {
+                rowHeight: boxHeight
+            }
+        });
 
     var swipe = {
+        width: 0,
+        start: 0,
         element: null,
         init: function(e) {
             this.element = e.get(0);
+            this.width = e.width();
             e.swipe({
                 triggerOnTouchEnd: true,
                 swipeStatus: swipe.status,
                 allowPageScroll: 'vertical',
-                threshold: 75,
+                threshold: 0,
                 fingers: 'all'
             });
         },
         status: function(event, phase, direction, distance, fingers) {
-            if (phase === "move" && (direction === "left" || direction === "right")) {
+            if(phase === "start"){
+                swipe.start = jQuery(swipe.element).transformMatrix(4);
+            } else if (phase === "move" && (direction === "left" || direction === "right")) {
                 var duration = 0;
                 if (direction === "left") {
                     swipe.move(distance, duration);
@@ -171,23 +132,17 @@ jQuery(document).ready(function() {
             }
         },
         move: function(distance, duration) {
-            /*var translate = (distance < 0 ? '' : '-') + Math.abs(distance).toString();*/
-
-            if (distance < 0)
+            
+  //          var matrix = jQuery(swipe.element).transformMatrix();
+            
+            if (swipe.start - distance > 0 || Math.abs(distance) > swipe.width)
                 return;
-
-            /*jQuery(swipe.element).css({
-             'transition-duration': (duration / 1000).toFixed(1) + 's',
-             'transform': 'skewX(-10deg) translateX(' + translate + 'px)'
-             'transform': 'matrix(1.02, 0, 0, 1, 0, ' + translate + 'px);'
-             });*/
-            var matrix = jQuery(swipe.element)
-                    .transformMatrix();
-
-            matrix[4] = parseInt(-1 * distance);
-
+ 
+            
+//            matrix[4] = swipe.start - distance;
+            
             jQuery(swipe.element)
-                    .transformMatrix(matrix)
+                    .transformMatrix(4, swipe.start - distance)
                     .css('transition-duration', (duration / 1000).toFixed(1) + 's');
         }
     };
