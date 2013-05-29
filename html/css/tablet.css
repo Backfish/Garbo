@@ -1,4 +1,4 @@
-@media all and (min-width: 641px) and (max-width:980px){
+@media all and (min-width: 641px) and (max-width:1024px){
 
     nav#sidebar{
         max-width:85px;
@@ -17,10 +17,10 @@
     }
 
     .games-container{
-       
+
     }
 
     .games{
-        
+
     }
 }
