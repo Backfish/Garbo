@@ -6,12 +6,12 @@
     .page{
         height:100%;
     }
-    
+
     div#sidebar{
         width:-webkit-calc(10%+2px);
         width:calc(10%+2px);
     }
-    
+
     nav#sidebar-menu{
         box-shadow:5px 0px 25px 5px #000;
         height:100%;
@@ -23,6 +23,23 @@
         font-size:0.25em;
     }
 
+    nav#sidebar-menu > a:after{
+        left: 100%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+
+
+        border-color: rgba(136, 183, 213, 0);
+        border-left-color: #88b7d5;
+        border-width: 19px;
+        top: 50%;
+        margin-top: -19px;
+    }
+
     nav#sidebar-menu > a#menu-item-all-games{
         display:none;
     }
@@ -30,17 +47,17 @@
     nav#sidebar-hidemenu{
         border-left:2px solid #360556;
     }
-    
+
     nav#footer{
         display:none;
     }
-    
+
     .games-container{
         -webkit-transform:matrix(1, 0, 0, 1, 0, 0);
         -moz-transform:matrix(1, 0, 0, 1, 0, 0);
         transform: matrix(1, 0, 0, 1, 0, 0);
     }
-    
+
     .games{
         -webkit-transform:matrix(1, 0, 0, 1, 0, 0);
         -moz-transform:matrix(1, 0, 0, 1, 0, 0);
