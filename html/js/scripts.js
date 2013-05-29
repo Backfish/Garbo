@@ -58,34 +58,7 @@ function get_random_color() {
 }
 
 jQuery(document).ready(function() {
-
-    jQuery.fn.transformMatrix = function(matrix, value) {
-        if (typeof matrix === 'undefined') {
-            if (jQuery(this).data('transform-matrix')) {
-                matrix = jQuery(this).data('transform-matrix');
-            } else {
-                var result = jQuery(this).css('transform').match(/\(([0-9\,\.\s])+\)/gi);
-
-                if (result) {
-                    matrix = result[0].replace(/\s|\(|\)|px/gi, '').split(',');
-                } else {
-                    matrix = [1, 0, 0, 1, 0, 0];
-                }
-            }
-
-            jQuery(this).data('transform-matrix', matrix);
-
-            return matrix;
-        } else if(typeof value !== 'undefined'){
-            
-        }
-
-        return jQuery(this).css({
-            transform: 'matrix(' + matrix.join(',') + ')'
-        }).data('transform-matrix', matrix);
-    };
-
-    for (x in menu) {
+    for (var x in menu) {
         menu[x] = jQuery.extend({
             id: 'menu-item-' + x,
             html: '<img alt="" src="images/icons/' + menu[x].icon + '" /><span>' + menu[x].label + '</span>',
@@ -93,7 +66,7 @@ jQuery(document).ready(function() {
             on: {}
         }, menu[x]);
 
-        jQuery('<a data-role="button">', menu[x]).appendTo('#sidebar-menu');
+        jQuery('<a />', menu[x]).attr('data-role', 'button').appendTo('#sidebar-menu');
     }
 
     var boxHeight = jQuery('.page').height() * 0.1, boxWidth = boxHeight * (screen.width / screen.height);
@@ -177,7 +150,9 @@ jQuery(document).ready(function() {
             e.swipe({
                 triggerOnTouchEnd: true,
                 swipeStatus: swipe.status,
-                allowPageScroll: "vertical"
+                allowPageScroll: 'vertical',
+                threshold: 75,
+                fingers: 'all'
             });
         },
         status: function(event, phase, direction, distance, fingers) {
@@ -190,14 +165,15 @@ jQuery(document).ready(function() {
                 }
             } else if (phase === "cancel") {
                 swipe.move(0, 0.5);
+                console.log('cancel');
             } else if (phase === "end") {
-
+                console.log('end');
             }
         },
         move: function(distance, duration) {
-            var translate = (distance < 0 ? '' : '-') + Math.abs(distance).toString();
+            /*var translate = (distance < 0 ? '' : '-') + Math.abs(distance).toString();*/
 
-            if (translate > 0)
+            if (distance < 0)
                 return;
 
             /*jQuery(swipe.element).css({
@@ -208,7 +184,7 @@ jQuery(document).ready(function() {
             var matrix = jQuery(swipe.element)
                     .transformMatrix();
 
-            matrix[4] = translate;
+            matrix[4] = parseInt(-1 * distance);
 
             jQuery(swipe.element)
                     .transformMatrix(matrix)
@@ -216,5 +192,5 @@ jQuery(document).ready(function() {
         }
     };
 
-    swipe.init(jQuery(".games-container"));
+    swipe.init(jQuery('.games-container'));
 });
