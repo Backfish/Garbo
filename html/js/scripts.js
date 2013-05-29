@@ -132,17 +132,13 @@ jQuery(document).ready(function() {
             }
         },
         move: function(distance, duration) {
-            
-  //          var matrix = jQuery(swipe.element).transformMatrix();
-            
-            if (swipe.start - distance > 0 || Math.abs(distance) > swipe.width)
+            distance = swipe.start - distance;
+    
+            if (distance > 0 || distance < -swipe.width)
                 return;
- 
-            
-//            matrix[4] = swipe.start - distance;
             
             jQuery(swipe.element)
-                    .transformMatrix(4, swipe.start - distance)
+                    .transformMatrix(4, distance)
                     .css('transition', 'ease-in ' + (duration / 1000).toFixed(1) + 's');
         }
     };
