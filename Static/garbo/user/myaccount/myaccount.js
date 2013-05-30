@@ -13,9 +13,9 @@ steal('jquery', 'can')
 	        {
 	        init: function () {
 	            var _this = this;
-	            $.getJSON('api/api/balance/GetPlayerBalance', function (data) {
+	            /*$.getJSON('api/api/balance/GetPlayerBalance', function (data) {
 	                _this.element.find('#MyAccountBalance').html(data.Amount);
-	            });
+	            });*/
 	            //Click the first tab.
 	            this.element.find('.nav a').eq(0).click();
 	        },

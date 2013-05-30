@@ -39,7 +39,9 @@ init: function(element, options) {
     this.setBindings();
     this.handleCallback();
     this.storedPosition = this.element.css('position');
-    this.element.css('position', this.options.desiredPositionType);
+    if (this.element.css('position')!='absolute') {
+        this.element.css('position', this.options.desiredPositionType);
+    }
 
     TweenLite.fromTo(this.spinningContainer, 1, {
         css: { autoAlpha: 1, scale: "0.7" },

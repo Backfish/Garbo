@@ -1,0 +1,40 @@
+// Core variables and mixins
+@import "../../less/variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "../../less/mixins.less";
+
+.slide-backdrop
+{
+    position: fixed;
+    top: 0;
+    right: 100%;
+    bottom: 0;
+    left: -100%;
+    z-index: 2;
+    background-color: #e5e6e8;
+
+    .modal
+    {
+        left: -100%;
+
+        h1
+        {
+            display:none;
+        }
+    }
+
+    .close
+    {
+        margin-right: 10px;
+        margin-top: 10px;
+        width: 33px;
+        height: 33px;
+        background: transparent url(/static/img/close.png) top left no-repeat;
+        text-indent: -9999em;
+        .opacity(90);
+
+        &:hover
+        {
+            .opacity(100);
+        }
+    }
+}

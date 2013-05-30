@@ -4,14 +4,72 @@ HTML for controller User.Register, inherits Core.Form
 Less/Css is found in /Static/Garbo/User/Register
 -->
 <h1>Register</h1>
-<form id="frmRegister" action="#" class="form-vertical row">
-    Fill the form with some loveliness!
-</form>
+<div class="slide">
+    <form action="#" method="POST">
+        <fieldset>
+            <legend>Register some shite</legend>
+            <div class="control-group">
+                <input type="text" value="" placeholder="Enter your email" id="Username" name="Username">
+            </div>
 
-<script>
+            <div class="control-group">
+                <input type="password" value="" placeholder="Password" id="Password" name="Password">
+            </div>
+        
+            <div class="control-group">
+                <input type="password" value="" placeholder="Repeat password" id="RepeatPassword">
+            </div>
+        
+            <div class="control-group">
+                <input type="text" value="" placeholder="Personnummer" id="DNI" name="DNI">
+            </div>
+
+            <div class="control-group">
+                <input type="text" value="" placeholder="Enter your first name" id="FirstName" name="FirstName">
+            </div>
+
+            <div class="control-group">
+                <input type="text" value="" placeholder="Enter your last name" id="LastName" name="LastName">
+            </div>
+        
+            <div class="control-group">
+                <input type="text" value="" placeholder="Address" id="Address" name="Address">
+            </div>
+            
+            <div class="control-group">
+                <input type="text" value="" placeholder="Address" id="Address2" name="Address2">
+            </div>
+        
+            <div class="control-group">
+                <input type="text" value="" placeholder="Your DNI" id="DNI" name="DNI">
+            </div>
+
+            <div class="control-group">
+                <input type="text" value="" placeholder="Enter your email" id="Text3" name="Username">
+            </div>
+
+            <div class="control-group">
+                <input type="password" value="" placeholder="Password" id="Password3" name="Password">
+            </div>
+        
+            <div class="control-group">
+                <input type="password" value="" placeholder="Repeat password" id="Password4">
+            </div>
+        
+            <div class="control-group">
+                <input type="text" value="" placeholder="Personnummer" id="Text4" name="DNI">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Next</button>
+        
+        </fieldset>
+    </form>
+</div>
+
+<!--script>
     new User.Register($('#frmRegister'), { url: '/api/Security/Register' });
     try {
         _gaq.push(['_trackPageview', '/register']);
     } catch (err) {
     }
-</script>
+</script-->

@@ -2,9 +2,9 @@ steal('jquery', 'can', 'steal/less')
 	.then('./views/currencyitems.ejs','./partone/partone.js', './parttwo/parttwo.js', 'core/tooltip', './register.less', function ($) {
 
 	    /**
-	    * @class Gb.User.Register
+	    * @class User.Register
 	    */
-	    can.Control('Gb.User.Register',
+	    can.Control('User.Register',
 	    /** @Static */
 	        {
 	        defaults: {}

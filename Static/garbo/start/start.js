@@ -1,4 +1,4 @@
-steal('can', 'jquery',function (can,$) {
+steal('can', 'jquery', 'steal/less', './start.less', function (can,$) {
 
 	    /**
 	    * @class Gb.Routing
@@ -21,7 +21,7 @@ steal('can', 'jquery',function (can,$) {
 	        startAnimation: function () {
 	            var tl = new TimelineMax();
 	            
-	            tl.from($('#page'), 1, { css: { autoAlpha: 0, marginTop: '+=50px'} }, 0.2);
+	            tl.from($('#page'), 1, { css: { autoAlpha: 0} }, 0.2);
 	            tl.to($('#navbar-user'), 1, { css: { top: '0px' }}, 1.2);
 
 	            tl.play();

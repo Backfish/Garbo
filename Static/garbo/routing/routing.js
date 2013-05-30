@@ -13,8 +13,7 @@ steal('can', 'jquery', 'can/control/route', function (can, $) {
 	            },
 	            section: '',
 	            startSection: null,
-	            casinoSection: null,
-	            sportsbookSection: null
+	            categorySection: null
 	        }
 	    },
 	    /** @Prototype */
@@ -50,7 +49,7 @@ steal('can', 'jquery', 'can/control/route', function (can, $) {
 	            new Gb.User.Logout();
 	        },
 	        "register route": function (data) {
-	            new Core.Modal('', { href: '/account/register/', headerText: "Register", width: 675 });
+	            new Core.Slidepage('', { href: '/user/register.html' });
 	        },
 	        "confirmation/ok route": function (data) {
 	            new Core.Modal('', { href: '/confirmation/ok/', headerText: "Confirmation", width: 500 });
@@ -62,7 +61,7 @@ steal('can', 'jquery', 'can/control/route', function (can, $) {
 	            new Core.Modal('', { href: '/confirmation/error/', headerText: "Confirmation", width: 500 });
 	        },
 	        "forgottenpassword route": function (data) {
-	            new Core.Modal('', { href: '/forgottenpassword/sendResetMessage/', headerText: "Forgotten Password", width: 500 });
+	            new Core.Modal('', { href: '/user/forgottenpassword.html', headerText: "Forgotten Password", width: 500 });
 	        },
 	        "forgottenpassword/newpassword route": function (data) {
 	            new Core.Modal('', { href: '/forgottenpassword/newpassword/', headerText: "Choose new password", width: 500 });
@@ -71,50 +70,16 @@ steal('can', 'jquery', 'can/control/route', function (can, $) {
 	            new Core.Modal('', { href: '/forgottenpassword/error/', headerText: "Error", width: 500 });
 	        },
 	        "myaccount route": function (data) {
-	            new Core.Modal('', { href: '/account/myaccount/', headerText: "My Account", width: 675 });
+	            new Core.Slidepage('', { href: '/user/myaccount.html' });
 	        },
 	        "withdrawal route": function (data) {
-	            new Core.Modal('', { href: '/withdrawalmethod/', headerText: "Withdrawal", width: 675 });
+	            new Core.Modal('', { href: '/deposit/depositmethods.html'});
 	        },
 	        "deposit route": function (data) {
-	            new Core.Modal('', { href: '/depositmethod/', headerText: "Deposit", width: 675 });
+	            new Core.Slidepage('', { href: '/deposit/depositmethods.html' });
 	        },
 	        "information/:action route": function (data) {
 	            new Core.Modal('', { href: '/information/' + data.action, headerText: "Information", width: 675 });
-	        },
-	        "sportsbook/rules route": function (data) {
-	            new Core.Modal('', { href: '/sportsbook/rules', headerText: "Information", width: 675 });
-	        },
-	        "sportsbook route": function (data) {
-	            var _this = this;
-	            if (this.options.section != 'sportsbook') {
-	                $('#nav-section').find('.active').removeClass('active');
-	                $('#nav-section').find('.sportsbook-link').parent().addClass('active');
-	                this.options.section = 'sportsbook';
-	                if (this.options.sportsbookSection == null) {
-	                    $.ajax({
-	                        type: "GET",
-	                        url: '/sportsbook/',
-	                        success: function (data) {
-	                            _this.options.sportsbookSection = new Core.Page('#page-sportsbook', { 'data': data });
-
-	                        },
-	                        error: function () {
-	                        },
-	                        complete: function () {
-	                        }
-	                    });
-	                } else {
-	                    _this.options.sportsbookSection.update({ data: null });
-	                }
-	            }
-	            try {
-	                _gaq.push(['_trackPageview', '/sportsbook']);
-	            } catch (err) {
-	            }
-	        },
-	        "sportsbook/tutorial route": function (data) {
-	            new Core.Modal('', { href: '/sportsbook/tutorial', headerText: "Tutorial", width: 675 });    
 	        },
 	        "casino route": function (data) {
 	            var _this = this;

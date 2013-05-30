@@ -1,42 +1,45 @@
 steal('can', 'jquery', 'can/construct/super','core/form', function (can, $) {
-
-	    /**
+        /**
 	    * @class User.Login
 	    */
 	    Core.Form('User.Login',
 	    /** @Static */
 	        {
-	        defaults: {}
+	        defaults: {
+	            active: false,
+	            url: '/login'
+	        }
 	    },
 	    /** @Prototype */
-	        {
-	        init: function () {
+	    {
+	        init: function() {
+	            this.element.show();
+	            this.options.active = true;
+	            this.element.find('[type=text]:first').focus();
 	            this._super();
 	        },
-	        "{document.documentElement} user:login": function () { this.loggedIn(); },
-	        "{document.documentElement} modal.animation.finished": function () {
-	            try {
-	                this.element.find('[type=text]:first').focus();
-	            } catch (err) {
+	        '{document} click': function(el, ev) {
+	            // hide only if we clicked outside the login-form
+	            if (this.options.active && !this.element.has(ev.target).length) {
+	                this.hide();
 	            }
 	        },
+	        "{document.documentElement} user:login": function() { this.loggedIn(); },
 	        success: function (data) {
-	            this.element.closest('.core_modal').find('.close').trigger('click');
-	            if ($('#LangCountry').val() == data.LangCountry) {
-	                $('#navUsername').html(data.PlayerName);
-	                $(document.documentElement).trigger('user:login');
-	            } else {
-	                //Reload the page with the users registered LangCountry.
-	                location.href='/?Lang='+data.LangCountry;
-	            }
+	            State.attr('Loggedin', true);
+	            this.hide();
 	        },
-	        loggedIn: function () {
+	        hide: function() {
+	            this.options.active = false;
+	            this.element.hide();
+	            this.destroy();
+	        },
+	        '{State} Loggedin': function () {
 	            $(document.body).removeClass('logged-out').addClass('logged-in');
 	        },
-	        ".lnkForgottenPassword click": function (el, ev) {
+	        ".link-forgotten-password click": function (el, ev) {
 	            ev.preventDefault();
 	            location.hash = '#!forgottenpassword';
 	        }
-	    });
-
-	});
+	        });
+});

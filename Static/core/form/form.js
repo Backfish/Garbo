@@ -1,6 +1,8 @@
-steal('can', 'jquery','core/popover', 'core/notification', function (can, $) {
-
-	    /**
+steal('can', 'jquery','core/popover', 'core/notification', function (can, $) { 
+        can.fixture('POST /login', function (req) {
+            return { username: 'HenkeBenke' };
+        });
+        /**
 	    * @class Core.Form
 	    * 
 	    */
