@@ -84,20 +84,24 @@ jQuery(document).ready(function() {
             }
         }).appendTo(games);
 
-        e.css('width', e.width());
+        e.css({
+            width: e.width(),
+            height: e.height()
+        });
     }
 
     games.css({
         marginLeft: -games.height() * games.transformMatrix(2)
     }).isotope({
         itemSelector: '.game',
-        layoutMode: 'masonryHorizontal',
-        masonryHorizontal: {
+        layoutMode: 'fitColumns',
+        masonry: {
+            columnWidth: e.width(),
             rowHeight: e.height()
         }
     }).parent().css('width', games.width());
 
-    var swipe = {
+    /*var swipe = {
         width: 0,
         start: 0,
         element: null,
@@ -151,6 +155,5 @@ jQuery(document).ready(function() {
                     .transformMatrix(4, distance);
         }
     };
-
-    //swipe.init(jQuery('.games-container'));
+*/
 });

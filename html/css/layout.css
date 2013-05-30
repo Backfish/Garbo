@@ -104,7 +104,7 @@ nav#sidebar-menu{
 
 nav#sidebar-menu > a{
     display:block;
-    height:10%;
+    height:auto;
     background-repeat:no-repeat;
     background-position:top center;
     width:100%;
@@ -117,7 +117,7 @@ nav#sidebar-menu > a{
     font-weight:bold;
 }
 
-nav#sidebar-menu > a > label{
+nav#sidebar-menu > a > span{
     display:block;
 }
 
