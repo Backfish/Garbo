@@ -57,6 +57,10 @@ function get_random_color() {
     return color;
 }
 
+document.addEventListener('DOMContentLoaded', function(){
+    new iScroll('category-1')
+}, false);
+
 jQuery(document).ready(function() {
     for (var x in menu) {
         menu[x] = jQuery.extend({
@@ -83,7 +87,7 @@ jQuery(document).ready(function() {
         e.css('width', e.width());
     }
 
-    jQuery('.games').css({
+    games.css({
         marginLeft: -games.height() * games.transformMatrix(2)
     }).isotope({
         itemSelector: '.game',
@@ -91,7 +95,7 @@ jQuery(document).ready(function() {
         masonryHorizontal: {
             rowHeight: e.height()
         }
-    }).parent().css('width', 'auto');
+    }).parent().css('width', games.width());
 
     var swipe = {
         width: 0,
@@ -139,7 +143,7 @@ jQuery(document).ready(function() {
         },
         scroll: function(event, delta, deltaX, deltaY) {
             var distance = jQuery(swipe.element).transformMatrix(4) + deltaY;
-            
+
             if (distance > 0 || distance < -swipe.width)
                 return;
 
@@ -148,5 +152,5 @@ jQuery(document).ready(function() {
         }
     };
 
-    swipe.init(jQuery('.games-container'));
+    //swipe.init(jQuery('.games-container'));
 });
