@@ -121,7 +121,7 @@ jQuery(document).ready(function() {
                     swipe.move(-distance, duration);
                 }
             } else if (phase === "cancel") {
-                swipe.move(5, 0.5);
+                swipe.move(-5, 1);
                 console.log('cancel');
             } else if (phase === "end") {
                 console.log('end');
@@ -135,7 +135,7 @@ jQuery(document).ready(function() {
 
             jQuery(swipe.element)
                     .transformMatrix(4, distance)
-                    .css('transition', (duration / 1000).toFixed(1) + 's');
+                    .css('transition', 'ease-in-out ' + duration.toFixed(1) + 's');
         },
         scroll: function(event, delta, deltaX, deltaY) {
             var distance = jQuery(swipe.element).transformMatrix(4) + deltaY;
