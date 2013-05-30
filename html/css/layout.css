@@ -213,9 +213,9 @@ nav#footer > a{
     /*position:absolute;*/
     display:block;
 
-    -webkit-transform:matrix(1, 0, -0.1763269807084645, 1, 0, 0);
+    /*-webkit-transform:matrix(1, 0, -0.1763269807084645, 1, 0, 0);
     -moz-transform:matrix(1, 0, -0.1763269807084645, 1, 0, 0);
-    transform: matrix(1, 0, -0.1763269807084645, 1, 0, 0);
+    transform: matrix(1, 0, -0.1763269807084645, 1, 0, 0);*/
 
     -webkit-transform-origin: 0 0;
     -moz-transform-origin: 0 0;
@@ -228,9 +228,9 @@ nav#footer > a{
     width:100%;
     display:block;
     margin-left:-14%;
-    -webkit-transform:matrix(1, 0, 0.1763269807084645, 1, 0, 0);
+    /*-webkit-transform:matrix(1, 0, 0.1763269807084645, 1, 0, 0);
     -moz-transform:matrix(1, 0, 0.1763269807084645, 1, 0, 0);
-    transform: matrix(1, 0, 0.1763269807084645, 1, 0, 0);
+    transform: matrix(1, 0, 0.1763269807084645, 1, 0, 0);*/
 
     -webkit-transform-origin: 0 0;
     -moz-transform-origin: 0 0;

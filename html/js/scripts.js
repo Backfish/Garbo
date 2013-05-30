@@ -73,7 +73,7 @@ jQuery(document).ready(function() {
         jQuery('<a />', menu[x]).attr('data-role', 'button').appendTo('#sidebar-menu');
     }
 
-    var gamesCount = 33, games = jQuery('.games'), e;
+    var gamesCount = 32, games = jQuery('.games'), e;
 
     for (var i = 0; i <= gamesCount; i++) {
         e = jQuery('<div />', {
@@ -95,9 +95,9 @@ jQuery(document).ready(function() {
     }).isotope({
         itemSelector: '.game',
         layoutMode: 'fitColumns',
-        masonry: {
+        fitColumns: {
             columnWidth: e.width(),
-            rowHeight: e.height()
+            rowHeight: jQuery('#game-0').width()
         }
     }).parent().css('width', games.width());
 

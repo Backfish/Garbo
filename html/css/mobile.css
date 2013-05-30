@@ -64,27 +64,27 @@
     }
 
     .games-container{
-        -webkit-transform:matrix(1, 0, 0, 1, 0, 0);
+        /*-webkit-transform:matrix(1, 0, 0, 1, 0, 0);
         -moz-transform:matrix(1, 0, 0, 1, 0, 0);
-        transform: matrix(1, 0, 0, 1, 0, 0);
+        transform: matrix(1, 0, 0, 1, 0, 0);*/
         margin-left:0 !important;
     }
 
     .games{
-        -webkit-transform:matrix(1, 0, 0, 1, 0, 0);
+        /*-webkit-transform:matrix(1, 0, 0, 1, 0, 0);
         -moz-transform:matrix(1, 0, 0, 1, 0, 0);
-        transform: matrix(1, 0, 0, 1, 0, 0);
+        transform: matrix(1, 0, 0, 1, 0, 0);*/
         margin-left:0 !important;
     }
         
     .games > div.game{
-        height:33.33333%;
-        width:33.33333%;
+        height:33%;
+        width:33%;
     }
     
     .games > div.game:first-child{
-        height:66.66666%;
-        width:66.66666%;
+        height:66%;
+        width:66%;
     }
 
 }
