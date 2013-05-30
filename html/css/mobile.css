@@ -32,14 +32,14 @@
     }
 
     nav#sidebar-menu:after {
-        border-color: rgba(136, 183, 213, 0);
+        /*border-color: rgba(136, 183, 213, 0);*/
         border-left-color: #b14e8f;
         border-width: 7.5px;
         top: 7%;
         margin-top: -7.5px;
     }
     nav#sidebar-menu:before {
-        border-color: rgba(194, 225, 245, 0);
+/*        border-color: rgba(194, 225, 245, 0);*/
         border-left-color: #360556;
         border-width: 9px;
         top: 7%;
@@ -76,4 +76,15 @@
         transform: matrix(1, 0, 0, 1, 0, 0);
         margin-left:0 !important;
     }
+        
+    .games > div.game{
+        height:33.33333%;
+        width:33.33333%;
+    }
+    
+    .games > div.game:first-child{
+        height:66.66666%;
+        width:66.66666%;
+    }
+
 }

@@ -83,7 +83,7 @@ div#sidebar{
     right:0;
     z-index:9;
     height:100%;
-    right: -29.5%;
+    right: -29.6%;
 }
 
 nav#sidebar-menu{
@@ -204,8 +204,8 @@ nav#footer > a{
     height: 100%;
     margin-left: 50%;
     overflow: hidden;
-    /*width: 100%;*/
-    width:auto;
+    width: 100%;
+    /*width:auto;*/
     position:absolute;
     display:block;
 
@@ -221,6 +221,7 @@ nav#footer > a{
 .games{
     background: none repeat scroll 0 0 #ffa72a;
     height:100%;
+    width:100%;
     display:block;
     margin-left:-14%;
     -webkit-transform:matrix(1, 0, 0.1763269807084645, 1, 0, 0);
@@ -230,4 +231,14 @@ nav#footer > a{
     -webkit-transform-origin: 0 0;
     -moz-transform-origin: 0 0;
     transform-origin: 0 0;
+}
+
+.games > div.game{
+    height:25%;
+    width:25%;
+}
+
+.games > div.game:first-child{
+    height:75%;
+    width:75%;
 }
