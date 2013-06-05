@@ -7,6 +7,8 @@ steal(
     'core/modal',
     'core/slidepage',
     './user/user.js',
+    './deposit/deposit.js',
+    './withdrawal/withdrawal.js',
     './usermenu/usermenu.js',
     './start/start.js',
     './routing/routing.js',
@@ -22,9 +24,10 @@ steal(
                 }
             }
         });*/
-
+        
         State = new can.Observe({
-            Loggedin: false
+            Loggedin: false,
+            Locale: 'sv_se'
         });
             
         new Gb.Usermenu($('#navbar-user'));

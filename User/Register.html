@@ -5,71 +5,90 @@ Less/Css is found in /Static/Garbo/User/Register
 -->
 <h1>Register</h1>
 <div class="slide">
-    <form action="#" method="POST">
+    <form action="#" method="POST" id="frmRegister">
         <fieldset>
-            <legend>Register some shite</legend>
-            <div class="control-group">
-                <input type="text" value="" placeholder="Enter your email" id="Username" name="Username">
+            <legend>Register</legend>
+            <div class="controls">
+                <input type="text" value="" placeholder="Enter your email"  data-placement="top" data-content="We need your email." class="Username tooltip-enabled span6" id="Username" name="Username">
             </div>
 
-            <div class="control-group">
-                <input type="password" value="" placeholder="Password" id="Password" name="Password">
+            <div class="controls">
+                <input type="password" value="" placeholder="Password" class="Password span6" id="Password" name="Password">
             </div>
         
-            <div class="control-group">
-                <input type="password" value="" placeholder="Repeat password" id="RepeatPassword">
+            <div class="controls">
+                <input type="password" value="" placeholder="Repeat password" class="RepeatPassword span6" id="RepeatPassword">
             </div>
         
-            <div class="control-group">
-                <input type="text" value="" placeholder="Personnummer" id="DNI" name="DNI">
+            <div class="controls">
+                <input type="text" value="" placeholder="YYYYMMDDXXXX" class="DNI span6"id="DNI" name="DNI">
             </div>
 
-            <div class="control-group">
-                <input type="text" value="" placeholder="Enter your first name" id="FirstName" name="FirstName">
-            </div>
-
-            <div class="control-group">
-                <input type="text" value="" placeholder="Enter your last name" id="LastName" name="LastName">
+            <div class="controls controls-row">
+                <input type="text" value="" placeholder="Enter your first name" class="FirstName span3" id="FirstName" name="FirstName">
+                <input type="text" value="" placeholder="Enter your last name" class="LastName span3" id="LastName" name="LastName">
             </div>
         
-            <div class="control-group">
-                <input type="text" value="" placeholder="Address" id="Address" name="Address">
+            <div class="controls">
+                <input type="text" value="" placeholder="Address" class="Address span6" id="Address" name="Address">
             </div>
             
-            <div class="control-group">
-                <input type="text" value="" placeholder="Address" id="Address2" name="Address2">
+            <div class="controls">
+                <input type="text" value="" placeholder="Address2" class="Address2 span6" id="Address2" name="Address2">
+            </div>
+            
+            <div class="controls controls-row">
+                <input type="text" value="" placeholder="ZipCode" class="ZipCode span2" id="ZipCode" name="ZipCode">
+                <input type="text" value="" placeholder="City" class="City span4" id="City" name="City">
+            </div>
+            
+            <div class="controls">
+                <select class="Country span6" name="Country" id="Country">
+                    <option value="SE">Sweden</option>
+                </select>
+            </div>  
+                   
+            <div class="controls controls-row">
+                <select class="Prefix span2" name="Prefix" id="Prefix">
+                    <option value="+46">+46</option>
+                </select>
+                <input type="text" class="span4" maxlength="20" name="Phone" id="Phone" placeholder="Phone" data-placement="top" data-content="Update your mobile phonenumber here." /> 
+            </div>
+            
+            <div class="controls">
+                <label class="span2" for="Sex">Sex</label>
+                <div class="switch" data-on-label="Male" data-off-label="Female">
+                    <input type="checkbox" id="Sex" name="Sex" data-toggle="switch" checked />
+                </div>
+            </div>
+                   
+            <div class="controls controls-row">
+                <select class="span2 Year" name="Year" id="Year">
+                    <option value="1980">1980</option>
+                </select> 
+                <select class="span2 Month" name="Year" id="Month">
+                    <option>Month</option>
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                </select>
+                <select class="span2 Day" name="Day" id="Day">
+                    <option>Day</option>
+                    <option value="01">01</option>
+                </select>
             </div>
         
-            <div class="control-group">
-                <input type="text" value="" placeholder="Your DNI" id="DNI" name="DNI">
+            <div class="controls-button">
+                <button type="submit" class="btn btn-primary">Next</button>
             </div>
-
-            <div class="control-group">
-                <input type="text" value="" placeholder="Enter your email" id="Text3" name="Username">
-            </div>
-
-            <div class="control-group">
-                <input type="password" value="" placeholder="Password" id="Password3" name="Password">
-            </div>
-        
-            <div class="control-group">
-                <input type="password" value="" placeholder="Repeat password" id="Password4">
-            </div>
-        
-            <div class="control-group">
-                <input type="text" value="" placeholder="Personnummer" id="Text4" name="DNI">
-            </div>
-
-            <button type="submit" class="btn btn-primary">Next</button>
         
         </fieldset>
     </form>
 </div>
 
-<!--script>
+<script>
     new User.Register($('#frmRegister'), { url: '/api/Security/Register' });
     try {
         _gaq.push(['_trackPageview', '/register']);
     } catch (err) {
     }
-</script-->
+</script>

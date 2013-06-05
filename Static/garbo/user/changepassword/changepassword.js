@@ -1,22 +1,26 @@
-steal('jquery', 'can', 'can/construct/super')
-	.then('core/form', function ($) {
+steal('can', 'jquery', 'garbo/models/changepassword.js', 'steal/less', 'core/popover/popover.js', function (can, $, Changepassword) {
 
-	    /**
-	    * @class User.Changepassword
-	    */
-	    Core.Form('User.Changepassword',
-	    /** @Static */
-	        {
-	        defaults: {}
-	    },
-	    /** @Prototype */
-	        {
-	        init: function () {
-	            this._super();
-	        }, 
-	        success: function (data) {
-	            new Core.Notification('', { state: 'success', title: 'Your password is updated.' });
-	        }
-	    });
+    /**
+    * @class User.Register
+    */
+    can.Control('User.Register',
+    /** @Static */
+        {
+            defaults: {}
+        },
+    /** @Prototype */
+        {
+            init: function () {
+                new Core.Popover(this.element, { triggerObj: 'input[type=password]' });
+            },
+            'submit': function (el, ev) {
+                ev.preventDefault();
+                var _this = this;
+                new Changepassword(el.serializeObject()).save(function (cp) {
+                    alert('You have now changed your password.')
+                });
+            }
 
-	});
+        });
+
+});

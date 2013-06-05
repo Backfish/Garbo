@@ -73,7 +73,7 @@ steal('can', 'jquery', 'can/control/route', function (can, $) {
 	            new Core.Slidepage('', { href: '/user/myaccount.html' });
 	        },
 	        "withdrawal route": function (data) {
-	            new Core.Modal('', { href: '/deposit/depositmethods.html'});
+	            new Core.Modal('', { href: '/withdrawal/withdrawalmethods.html'});
 	        },
 	        "deposit route": function (data) {
 	            new Core.Slidepage('', { href: '/deposit/depositmethods.html' });

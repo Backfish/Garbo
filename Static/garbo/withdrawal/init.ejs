@@ -1,0 +1,12 @@
+<table class="table table-condensed table-striped"> 
+    <%for(var i=0;i<this.length;i++){%>
+                   <tr class="withdrawal-method">
+                       <td>
+                           <%=this[i].name%>
+                       </td>
+                       <td>
+                           <%=this[i].description%>
+                       </td>
+                   </tr>
+	<%}%>
+</table>
