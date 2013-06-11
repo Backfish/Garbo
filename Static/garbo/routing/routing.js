@@ -120,7 +120,7 @@ steal('can', 'jquery', 'can/control/route', function (can, $) {
 	            new Gb.Game('', { GameId: data.id, IsReal: false });
 	        },
 	        "choose-country route": function (data) {
-	            new Core.Modal('', { href: '/chooseCountry/chooseCountry', width: 350 });
+	            new Core.Modal('', { href: '/choosecountry/choosecountry', width: 350 });
 	        }
 	    });
 

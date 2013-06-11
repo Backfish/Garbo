@@ -1,13 +1,12 @@
-steal('can', 'jquery', 'garbo/models/login.js', 'can/construct/super','can/construct/proxy','core/form', function (can, $, Login) {
+steal('can', 'jquery', 'garbo/models/login.js', 'can/construct/super','can/construct/proxy','core/validate', function (can, $, Login) {
         /**
 	    * @class User.Login
 	    */
-    can.Control('User.Login',
+    Core.Validate('User.Login',
         /** @Static */
         {
             defaults: {
-                active: false,
-                url: '/login'
+                active: false
             }
         },
         /** @Prototype */
@@ -23,6 +22,8 @@ steal('can', 'jquery', 'garbo/models/login.js', 'can/construct/super','can/const
                 var _this = this;
                 new Login(el.serializeObject()).save(function (login) {
                     _this.success(login);
+                }, function(jqXHR, textStatus, err) {
+                    _this.error(jqXHR, textStatus, err);
                 });
             },
             '{document} click': function(el, ev) {

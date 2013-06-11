@@ -14,7 +14,7 @@ steal('can', function (can) {
 		/**
  		 * Create a register
 		 */
-		create : "POST /register"
+		create : "POST /api/register"
 		
 	},
 	/* @Prototype */

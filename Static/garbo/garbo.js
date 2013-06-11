@@ -6,6 +6,7 @@ steal(
     'core/page',
     'core/modal',
     'core/slidepage',
+    'core/validate',
     './user/user.js',
     './deposit/deposit.js',
     './withdrawal/withdrawal.js',
@@ -14,7 +15,6 @@ steal(
     './routing/routing.js',
     'resources/greensock/jquery.gsap.js',
     'resources/bootstrap/bootstrap-dropdown.js',
-    'can/util/fixture',
     function (can, $) {
         /*jQuery.support.cors = true;
         $.ajaxSetup({

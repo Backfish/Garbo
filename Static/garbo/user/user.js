@@ -1,5 +1,5 @@
 steal(
-    './Login/Login.js',
+    './login/login.js',
     './logout/logout.js',
     './register/register.js',
     './myaccount/myaccount.js',

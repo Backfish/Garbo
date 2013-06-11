@@ -1,15 +1,4 @@
 steal('can', function (can) {
-    var store = can.fixture.store(5, function (i) {
-        return {
-            name: "deposit " + i,
-            description: "deposit " + i
-        }
-    });
-
-    can.fixture({
-        'GET /deposits': store.findAll,
-        'GET /deposits/{id}': store.findOne
-    });
 	/**
 	 * @constructor gb/models/deposit
 	 * @alias Deposit

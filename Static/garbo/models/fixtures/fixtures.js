@@ -1,6 +1,6 @@
 // map fixtures for this application
 steal("can/util/fixture", function(fixture) {
-
+    alert('bajs')
 	var store = fixture.store(1, function(i){
 		return {
 			name: "register "+i,
@@ -10,19 +10,6 @@ steal("can/util/fixture", function(fixture) {
 	
 	fixture({
 		'POST /register' : store.create
-	});
-
-	return store;
-
-	var store = fixture.store(1, function(i){
-		return {
-			name: "login "+i,
-			description: "login " + i
-		}
-	});
-	
-	fixture({
-		'POST /login' : store.create
 	});
 
 	return store;

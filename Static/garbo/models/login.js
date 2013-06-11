@@ -1,4 +1,4 @@
-steal('can', 'garbo/models/fixtures', function (can) {
+steal('can', function (can) {
     /**
 	 * @constructor gb/models/login
 	 * @alias Login
@@ -13,7 +13,7 @@ steal('can', 'garbo/models/fixtures', function (can) {
 		/**
  		 * Create a login
 		 */
-		create : "POST /login"
+	    create: "POST //172.17.100.150/api/login"
 	},
 	/* @Prototype */
 	{});
