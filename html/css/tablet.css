@@ -1,5 +1,9 @@
 @media all and (min-width: 641px) and (max-width:1024px){
 
+    .page{
+        height:95%;
+    }
+    
     nav#sidebar{
         max-width:85px;
     }

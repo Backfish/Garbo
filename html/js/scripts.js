@@ -57,8 +57,8 @@ function get_random_color() {
     return color;
 }
 
-document.addEventListener('DOMContentLoaded', function(){
-    new iScroll('category-1')
+document.addEventListener('DOMContentLoaded', function() {
+    new iScroll('category-1');
 }, false);
 
 jQuery(document).ready(function() {
@@ -83,77 +83,16 @@ jQuery(document).ready(function() {
                 'background-color': (i === 0 ? 'transparent' : (i % 2 === 0 ? '#fff' : get_random_color()))
             }
         }).appendTo(games);
-
-        e.css({
-            width: e.width(),
-            height: e.height()
-        });
     }
 
-    games.css({
-        marginLeft: -games.height() * games.transformMatrix(2)
-    }).isotope({
+    games.isotope({
         itemSelector: '.game',
-        layoutMode: 'fitColumns',
-        fitColumns: {
-            columnWidth: e.width(),
-            rowHeight: jQuery('#game-0').width()
+        layoutMode: 'masonryHorizontal',
+        masonryHorizontal: {
+            rowHeight: e.height()
+        },
+        onLayout: function($elems, instance) {
+            console.log(this.height());
         }
-    }).parent().css('width', games.width());
-
-    /*var swipe = {
-        width: 0,
-        start: 0,
-        element: null,
-        init: function(e) {
-            this.element = e.get(0);
-            this.width = e.width();
-            e.swipe({
-                triggerOnTouchEnd: true,
-                swipeStatus: swipe.status,
-                allowPageScroll: 'horizontal',
-                threshold: 0,
-                fingers: 'all'
-            });
-
-            e.bind('mousewheel', swipe.scroll);
-        },
-        status: function(event, phase, direction, distance, fingers) {
-            if (phase === "start") {
-                swipe.start = jQuery(swipe.element).transformMatrix(4);
-            } else if (phase === "move" && (direction === "left" || direction === "right")) {
-                var duration = 0;
-                if (direction === "left") {
-                    swipe.move(distance, duration);
-                } else if (direction === "right") {
-                    swipe.move(-distance, duration);
-                }
-            } else if (phase === "cancel") {
-                swipe.move(-5, 1);
-                console.log('cancel');
-            } else if (phase === "end") {
-                console.log('end');
-            }
-        },
-        move: function(distance, duration) {
-            distance = swipe.start - distance;
-
-            if (distance > 0 || distance < -swipe.width)
-                return;
-
-            jQuery(swipe.element)
-                    .transformMatrix(4, distance)
-                    .css('transition', 'ease-in-out ' + duration.toFixed(1) + 's');
-        },
-        scroll: function(event, delta, deltaX, deltaY) {
-            var distance = jQuery(swipe.element).transformMatrix(4) + deltaY;
-
-            if (distance > 0 || distance < -swipe.width)
-                return;
-
-            jQuery(swipe.element)
-                    .transformMatrix(4, distance);
-        }
-    };
-*/
+    }).parent().width(games.width());
 });
