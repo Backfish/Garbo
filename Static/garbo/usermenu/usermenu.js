@@ -1,4 +1,4 @@
-steal('can', 'jquery', function (can,$) {
+steal('can', 'jquery', 'steal/less', './usermenu.less', function (can, $) {
         
 	    /**
 	    * @class Gb.Usermenu

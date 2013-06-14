@@ -12,6 +12,7 @@ steal(
     './withdrawal/withdrawal.js',
     './usermenu/usermenu.js',
     './start/start.js',
+    './section/section.js',
     './routing/routing.js',
     'resources/greensock/jquery.gsap.js',
     'resources/bootstrap/bootstrap-dropdown.js',
@@ -27,11 +28,14 @@ steal(
         
         State = new can.Observe({
             Loggedin: false,
-            Locale: 'sv_se'
+            Locale: 'sv_se',
+            NetentUrl: '',
+            CdnUrl:''
         });
             
         new Gb.Usermenu($('#navbar-user'));
         new Gb.Start('body');
+        new Gb.Casino('#casino');
             
         Routing = new Gb.Routing('body');
 

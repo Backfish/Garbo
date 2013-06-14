@@ -1,9 +1,9 @@
 steal('can', 'jquery','core/popover', 'core/notification', function (can, $) { 
         /**
-	    * @class Core.Form
+	    * @class Core.Validate
 	    * 
 	    */
-	    can.Control('Core.Form',
+	    can.Control('Core.Validate',
 	    /** @Static */
 	    {
 	    defaults: {
@@ -49,48 +49,6 @@ steal('can', 'jquery','core/popover', 'core/notification', function (can, $) {
 	            }
 	        };
 	    },
-	    submitform: function (el) {
-	        var _this = this;
-	        var params = this.options.method == 'GET' ? el.serializeObject() : JSON.stringify(el.serializeObject());
-	        $.ajax({
-	            type: _this.options.method,
-	            url: _this.options.url + _this.options.extraParam,
-	            data: params,
-	            contentType: "application/json; charset=utf-8",
-	            dataType: "json",
-	            success: function (data) {
-	                el.find('.error').removeClass('error');
-	                _this.success(data);
-	            },
-	            error: function (jqXHR, textStatus, err) {
-	                if (!Modernizr.input.placeholder) {
-	                    _this.element.find('[placeholder]').each(function () {
-	                        var input = $(this);
-	                        if (input.val() == '' || input.val() == input.attr('placeholder')) {
-	                            input.addClass('placeholder');
-	                            input.val(input.attr('placeholder'));
-	                        }
-	                    });
-	                }
-	                _this.error(jqXHR, textStatus, err);
-	            },
-	            complete: function () { _this.complete(); }
-	        });
-	    },
-	    "submit": function (el, ev) {
-	        ev.preventDefault();
-	        this.options.loader = new Core.Loader(el, { delay: 0 });
-	        if (!Modernizr.input.placeholder) {
-	            var els = this.element.find('[placeholder]');
-	            for (var i = 0; i < els.length; i++) {
-	                var input = $(els[i]);
-	                if (input.val() == input.attr('placeholder')) {
-	                    input.val('');
-	                };
-	            };
-	        };
-	        this.submitform(el);
-	    },
 	    "input[type=text] blur": function (el, ev) {
 	        this.validate(el);
 	    },
@@ -101,35 +59,7 @@ steal('can', 'jquery','core/popover', 'core/notification', function (can, $) {
 	        el.removeClass('error');
 	    },
 	    validate: function (el) {
-	        if (!el.hasClass('no-validate')) {
-	            var _validator = { Name: el.prop('name'), Value: el.val() };
-	            var _this = this;
-
-	            if (this.options.validator != '' && el.val() != '' && el.val() != el.attr('placeholder')) {
-	                $.ajax({
-	                    type: "POST",
-	                    url: _this.options.validator,
-	                    data: JSON.stringify(_validator),
-	                    contentType: "application/json; charset=utf-8",
-	                    dataType: "json",
-	                    success: function (data) {
-	                        _this.validateOk(el);
-	                    },
-	                    error: function (jqXHR, textStatus, err) {
-	                        var responseText = $.parseJSON(jqXHR.responseText);
-	                        if (responseText != null) {
-	                            el.data('error', '');
-	                            el.addClass('error');
-	                            el.data('error', el.data('error') + responseText.Message);
-	                        } else {
-	                            Core.Notification('', { state: 'error', title: 'You cannot post an empty form.' });
-	                        }
-	                    },
-	                    complete: function () {
-	                    }
-	                });
-	            }
-	        }
+	        this.validateOk(el)
 	    },
 	    success: function (data) {
 	        //Show notifiers/alert with msg?
@@ -166,11 +96,6 @@ steal('can', 'jquery','core/popover', 'core/notification', function (can, $) {
 	    validateOk: function (el) {
 	        el.data('error', '');
 	        el.removeClass('error').addClass('success');
-	    },
-	    complete: function () {
-	        if (this.options.loader != null) {
-	            this.options.loader.remove();
-	        }
 	    },
 	    "input keypress": function (el, ev) {
 	        $(el).removeClass('error').removeClass('success');

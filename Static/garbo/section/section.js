@@ -1,1 +1,1 @@
-steal('./casino/casino.js', './sportsbook/sportsbook.js');
+steal('./casino/casino.js');
